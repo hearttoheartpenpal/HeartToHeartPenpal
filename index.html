@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -9,66 +9,49 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
 
- <link rel="stylesheet" href="./style.css?v=9" />
-<script src="./script.js?v=9"></script>
+  <link rel="stylesheet" href="./style.css" />
+</head>
 
 <body>
-  <!-- theme icon + label -->
-  <div class="themeWrap">
-    <button class="themeBtn" id="themeBtn" type="button" aria-label="Toggle theme">
-      <img id="themeIcon" src="./assets/sun.png" alt="Theme">
-    </button>
-    <div class="themeLabel" id="themeLabel">Light</div>
+  <!-- top-left icons (appearance only for now) -->
+  <div class="topLeft">
+    <img class="topIcon" src="./assets/sun.png" alt="Sun" />
+    <img class="topIcon" src="./assets/moon.png" alt="Moon" />
   </div>
 
-  <!-- big Canva white rectangle -->
-  <main class="stage">
-    <section class="whiteRect" aria-label="Heart to Heart home">
+  <main class="page">
+    <section class="canvas">
       <img class="envelope" src="./assets/envelope.png" alt="Envelope" />
 
-      <h1 class="title">Heart to Heart</h1>
-      <div class="subtitle">—Penpal Program—</div>
+      <div class="laceFrame">
+        <div class="laceInner">
+          <h1 class="title">Heart to Heart</h1>
+          <div class="subtitle">—Penpal Program—</div>
 
-      <div class="menu">
-        <button class="menuItem" type="button">
-          <img src="./assets/about.png" alt="About">
-          <div class="menuLabel">About</div>
-        </button>
+          <div class="iconRow">
+            <div class="iconItem">
+              <img class="iconImg" src="./assets/about.png" alt="About" />
+              <div class="iconLabel">About</div>
+            </div>
 
-        <button class="menuItem" type="button">
-          <img src="./assets/rules.png" alt="Rules">
-          <div class="menuLabel">Rules</div>
-        </button>
+            <div class="iconItem">
+              <img class="iconImg" src="./assets/rules.png" alt="Rules" />
+              <div class="iconLabel">Rules</div>
+            </div>
 
-        <button class="menuItem" type="button">
-          <img src="./assets/contact.png" alt="Contact">
-          <div class="menuLabel">Contact</div>
-        </button>
+            <div class="iconItem">
+              <img class="iconImg" src="./assets/contact.png" alt="Contact" />
+              <div class="iconLabel">Contact</div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- games (right side like Canva) -->
-      <div class="gamesWrap">
-        <button class="gamesBtn" id="gamesBtn" type="button" aria-label="Games">
-          <img src="./assets/games.png" alt="Games">
-        </button>
+      <div class="gamesCorner">
+        <img class="gamesImg" src="./assets/games.png" alt="Games" />
         <div class="gamesLabel">Games</div>
       </div>
     </section>
   </main>
-
-  <!-- placeholder popup (we’ll do real games later) -->
-  <div class="overlay" id="overlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-label="Games">
-      <div class="modalTop">
-        <div class="modalTitle">Games</div>
-        <button class="modalX" id="modalX" type="button" aria-label="Close">✕</button>
-      </div>
-      <div class="modalBody">
-        Options will go here next.
-      </div>
-    </div>
-  </div>
-
-  <script src="./script.js"></script>
 </body>
 </html>
