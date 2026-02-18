@@ -13,14 +13,17 @@
 </head>
 
 <body>
-  <!-- Sun/Moon (no circle/box) -->
-  <button class="themeBtn" id="themeBtn" type="button" aria-label="Toggle theme">
-    <img id="themeIcon" src="./assets/sun.png" alt="Theme">
-  </button>
+  <!-- theme icon + label -->
+  <div class="themeWrap">
+    <button class="themeBtn" id="themeBtn" type="button" aria-label="Toggle theme">
+      <img id="themeIcon" src="./assets/sun.png" alt="Theme">
+    </button>
+    <div class="themeLabel" id="themeLabel">Light</div>
+  </div>
 
-  <!-- This is the MAIN Canva lace rectangle -->
-  <main class="laceStage">
-    <section class="laceBox" aria-label="Heart to Heart home">
+  <!-- big Canva white rectangle -->
+  <main class="stage">
+    <section class="whiteRect" aria-label="Heart to Heart home">
       <img class="envelope" src="./assets/envelope.png" alt="Envelope" />
 
       <h1 class="title">Heart to Heart</h1>
@@ -43,7 +46,7 @@
         </button>
       </div>
 
-      <!-- Games (bottom-right like Canva) -->
+      <!-- games (right side like Canva) -->
       <div class="gamesWrap">
         <button class="gamesBtn" id="gamesBtn" type="button" aria-label="Games">
           <img src="./assets/games.png" alt="Games">
@@ -53,7 +56,7 @@
     </section>
   </main>
 
-  <!-- Games popup later: for now it just opens a placeholder box -->
+  <!-- placeholder popup (we’ll do real games later) -->
   <div class="overlay" id="overlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-label="Games">
       <div class="modalTop">
@@ -61,7 +64,7 @@
         <button class="modalX" id="modalX" type="button" aria-label="Close">✕</button>
       </div>
       <div class="modalBody">
-        Options will go here (we’ll code the games next).
+        Options will go here next.
       </div>
     </div>
   </div>
