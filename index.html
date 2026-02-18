@@ -9,38 +9,202 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./style.css" />
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family:"Poppins", system-ui, -apple-system, Arial, sans-serif;
+      background:#fdeaf1; /* Canva blush */
+      overflow-x:hidden;
+    }
+    img{ display:block; max-width:100%; height:auto; }
+
+    /* ===== Top-left icons (appearance only) ===== */
+    .topLeft{
+      position:fixed;
+      top:22px;
+      left:22px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      z-index:50;
+      user-select:none;
+    }
+    .topLeft img{
+      width:72px;
+      height:auto;
+      pointer-events:none; /* not clickable yet */
+    }
+
+    /* ===== Center stage ===== */
+    .stage{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 44px 18px;
+    }
+
+    /* Big white “card” like Canva artboard */
+    .card{
+      width: min(1240px, 94vw);
+      height: min(720px, 82vh);
+      background:#fff;
+      border-radius: 10px;
+      box-shadow: 0 26px 70px rgba(0,0,0,.14);
+      position:relative;
+      padding: 44px 56px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+    }
+
+    /* Envelope bigger, centered */
+    .envelope{
+      width: clamp(420px, 38vw, 620px);
+      margin-top: 6px;
+      margin-bottom: 20px;
+    }
+
+    /* Lace area: uses lace.png if present, otherwise dotted “lace” */
+    .laceArea{
+      width: 100%;
+      flex: 1;
+      position:relative;
+
+      /* lace image */
+      background: url("./assets/lace.png") center / 100% 100% no-repeat;
+
+      /* fallback lace vibe */
+      background-color:#fff;
+      border-radius: 10px;
+      outline: 3px dotted rgba(255, 168, 198, .65);
+      outline-offset: -18px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 36px 40px;
+    }
+
+    .inner{
+      width: min(980px, 100%);
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap: 14px;
+    }
+
+    /* Title + subtitle like Canva */
+    .title{
+      margin:0;
+      font-weight:800;
+      color:#c40000;
+      font-size: clamp(84px, 7.2vw, 132px);
+      line-height:1.02;
+    }
+
+    .subtitle{
+      margin: 0;
+      font-weight:800;
+      font-size: clamp(24px, 2.3vw, 36px);
+      color:#111;
+      opacity:.9;
+    }
+
+    /* Row of icons (big) */
+    .iconRow{
+      margin-top: 18px;
+      display:flex;
+      gap: clamp(70px, 7vw, 150px);
+      align-items:flex-end;
+      justify-content:center;
+      flex-wrap: wrap;
+    }
+
+    .iconItem{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap: 12px;
+      min-width: 160px;
+    }
+
+    .iconItem img{
+      width: clamp(95px, 8vw, 140px);
+    }
+
+    .iconLabel{
+      font-weight:800;
+      font-size: 22px;
+      color:#111;
+    }
+
+    /* Games bottom-right like Canva */
+    .gamesCorner{
+      position:absolute;
+      right: 44px;
+      bottom: 34px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap: 10px;
+      user-select:none;
+    }
+
+    .gamesCorner img{
+      width: 160px;
+      height:auto;
+    }
+
+    .gamesCorner .gamesLabel{
+      font-weight:800;
+      font-size:22px;
+      color:#111;
+    }
+
+    /* Responsive tweaks for small screens */
+    @media (max-width: 900px){
+      .card{ padding: 34px 22px; height: auto; }
+      .laceArea{ padding: 26px 18px; }
+      .gamesCorner{ position:static; margin-top: 18px; }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- top-left icons (appearance only for now) -->
+  <!-- Appearance-only icons for now -->
   <div class="topLeft">
-    <img class="topIcon" src="./assets/sun.png" alt="Sun" />
-    <img class="topIcon" src="./assets/moon.png" alt="Moon" />
+    <img src="./assets/sun.png" alt="Sun">
+    <img src="./assets/moon.png" alt="Moon">
   </div>
 
-  <main class="page">
-    <section class="canvas">
-      <img class="envelope" src="./assets/envelope.png" alt="Envelope" />
+  <main class="stage">
+    <section class="card" aria-label="Heart to Heart homepage">
+      <img class="envelope" src="./assets/envelope.png" alt="Envelope logo">
 
-      <div class="laceFrame">
-        <div class="laceInner">
+      <div class="laceArea">
+        <div class="inner">
           <h1 class="title">Heart to Heart</h1>
-          <div class="subtitle">—Penpal Program—</div>
+          <p class="subtitle">—Penpal Program—</p>
 
           <div class="iconRow">
             <div class="iconItem">
-              <img class="iconImg" src="./assets/about.png" alt="About" />
+              <img src="./assets/about.png" alt="About icon">
               <div class="iconLabel">About</div>
             </div>
 
             <div class="iconItem">
-              <img class="iconImg" src="./assets/rules.png" alt="Rules" />
+              <img src="./assets/rules.png" alt="Rules icon">
               <div class="iconLabel">Rules</div>
             </div>
 
             <div class="iconItem">
-              <img class="iconImg" src="./assets/contact.png" alt="Contact" />
+              <img src="./assets/contact.png" alt="Contact icon">
               <div class="iconLabel">Contact</div>
             </div>
           </div>
@@ -48,7 +212,7 @@
       </div>
 
       <div class="gamesCorner">
-        <img class="gamesImg" src="./assets/games.png" alt="Games" />
+        <img src="./assets/games.png" alt="Games icon">
         <div class="gamesLabel">Games</div>
       </div>
     </section>
