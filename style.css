@@ -1,131 +1,200 @@
-* { box-sizing: border-box; }
-img { display: block; max-width: 100%; height: auto; }
-
-:root{
-  --blush: #fdeaf1;   /* Canva blush */
-  --titleRed: #c40000;
-  --shadow: 0 26px 70px rgba(0,0,0,.14);
-}
-
+*{ box-sizing:border-box; }
+html, body{ height:100%; }
 body{
-  margin: 0;
-  font-family: "Poppins", system-ui, -apple-system, Arial, sans-serif;
-  background: var(--blush);
+  margin:0;
+  font-family:"Poppins", system-ui, -apple-system, Arial, sans-serif;
+  background:#fdeaf1; /* blush */
+  overflow-x:hidden;
 }
+img{ display:block; max-width:100%; height:auto; }
 
-.page{
-  min-height: 100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding: 40px 18px;
-}
+/* THEME (background only) */
+html[data-theme="light"] body{ background:#fdeaf1; }
+html[data-theme="dark"] body{ background:#1e0f17; }
 
-/* Top-left sun/moon icons (appearance only) */
-.topLeft{
-  position: fixed;
-  top: 22px;
-  left: 22px;
+/* TOP LEFT THEME ICON + LABEL (consistent spacing) */
+.themeWrap{
+  position:fixed;
+  top:22px;
+  left:22px;
+  z-index:100;
   display:flex;
   flex-direction:column;
-  gap: 14px;
-  z-index: 10;
-}
-.topIcon{
-  width: 64px; /* adjust later */
+  align-items:center;
+  gap:6px;            /* SAME spacing always */
+  user-select:none;
 }
 
-/* Main canvas area */
-.canvas{
-  width: min(1150px, 94vw);
-  aspect-ratio: 16 / 9;
-  position: relative;
+.themeBtn{
+  border:none;
+  background:transparent;
+  padding:0;
+  margin:0;
+  cursor:pointer;
+  appearance:none;
+  -webkit-appearance:none;
 }
 
-/* Big envelope like Canva */
+/* FORCE SAME “BOX” so sun/moon behave identical */
+.themeBtn img{
+  width:88px;         /* slightly bigger */
+  height:88px;        /* fixed square box = consistent label distance */
+  object-fit:cover;   /* trims empty transparent padding */
+  transition:transform .15s ease;
+}
+
+.themeBtn:hover img{ transform:translateY(-2px); }
+
+.themeLabel{
+  font-weight:800;
+  font-size:14px;
+  line-height:1;      /* prevents extra vertical spacing */
+  color:#111;
+  background:rgba(255,255,255,.65);
+  padding:4px 10px;
+  border-radius:999px;
+  backdrop-filter: blur(6px);
+}
+
+/* MAIN LAYOUT (bottom-heavy) */
+.stage{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding: 52px 16px 80px;
+}
+
+.layout{
+  width:min(1280px, 94vw);
+  position:relative;
+  padding-top: 16px;  /* pulls everything up slightly */
+}
+
+/* Envelope */
 .envelope{
-  width: clamp(320px, 30vw, 520px);
-  margin: 0 auto 18px;
+  width: clamp(460px, 40vw, 660px);
+  margin: 0 auto;
+  position:relative;
+  z-index:3;
 }
 
-/* Lace rectangle (this must be your lace image) */
-.laceFrame{
-  width: 100%;
-  height: calc(100% - 120px);
-  background: url("./assets/lace.png") center / 100% 100% no-repeat;
-  filter: drop-shadow(var(--shadow));
-  position: relative;
-}
+/* White card: wider + shorter (more horizontal) */
+.card{
+  width: 92%;
+  max-width: 1280px;
+  margin: -125px auto 0;     /* overlap under envelope */
+  background:#fff;
+  border-radius: 12px;
+  box-shadow: 0 26px 70px rgba(0,0,0,.14);
+  position:relative;
+  z-index:2;
 
-/* Inner content sits inside the lace */
-.laceInner{
-  position:absolute;
-  inset: 10% 10%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+  /* SHORTER + CONTENT HIGHER */
+  padding: 110px 56px 70px;
   text-align:center;
 }
 
+/* Title and subtitle higher (less top padding already does this) */
 .title{
-  margin: 0;
-  font-weight: 800;
-  color: var(--titleRed);
-  font-size: clamp(70px, 7vw, 120px);
-  line-height: 1.02;
+  margin:0;
+  font-weight:800;
+  color:#c40000;
+  font-size: clamp(98px, 7.2vw, 138px);
+  line-height:1.0;
 }
 
 .subtitle{
-  margin-top: 10px;
-  font-weight: 800;
-  font-size: clamp(22px, 2.3vw, 34px);
-  color: #111;
-  opacity: .9;
+  margin-top:10px;
+  font-weight:800;
+  font-size: clamp(24px, 2.1vw, 34px);
+  color:#111;
+  opacity:.9;
 }
 
+/* Icons row */
 .iconRow{
-  margin-top: 34px;
+  margin-top: 34px;   /* slightly closer to subtitle */
   display:flex;
-  gap: clamp(70px, 7vw, 140px);
-  align-items:flex-end;
   justify-content:center;
+  gap: clamp(70px, 7vw, 150px);
+  flex-wrap:wrap;
 }
 
-.iconItem{
+.iconBtn{
+  border:none;
+  background:transparent;
+  cursor:pointer;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap: 12px;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:18px;
+  transition:transform .18s ease;
 }
+.iconBtn:hover{ transform: translateY(-5px); }
 
+/* ABOUT/RULES/CONTACT BIGGER */
 .iconImg{
-  width: clamp(95px, 8vw, 135px);
+  height: 205px;  /* was ~165, now way bigger */
+  width: auto;
+  object-fit: contain;
 }
 
 .iconLabel{
-  font-weight: 800;
-  font-size: 22px;
-  color: #111;
+  font-weight:800;
+  font-size: 14px; /* smaller label like you wanted */
+  color:#111;
+  opacity:.95;
 }
 
-/* Games bottom-right like Canva */
-.gamesCorner{
-  position:absolute;
-  right: 30px;
-  bottom: 18px;
+/* Games fixed bottom-right of the WEBSITE (pink) */
+.gamesFixed{
+  position:fixed;
+  right: 26px;
+  bottom: 22px;
+  z-index:150;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap: 10px;
+  gap:8px;
+  user-select:none;
 }
 
+.gamesBtn{
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  transition: transform .18s ease;
+}
+.gamesBtn:hover{ transform: translateY(-5px) scale(1.02); }
+.gamesBtn:active{ transform: translateY(-2px) scale(0.98); }
+
+/* SHRINK GAMES */
 .gamesImg{
-  width: 150px;
+  width: 95px;   /* smaller */
+  height:auto;
 }
 
 .gamesLabel{
-  font-weight: 800;
-  font-size: 22px;
-  color: #111;
+  font-weight:800;
+  font-size:13px; /* smaller text */
+  color:#111;
+  background:rgba(255,255,255,.65);
+  padding:4px 10px;
+  border-radius:999px;
+  backdrop-filter: blur(6px);
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .card{
+    width: 94vw;
+    margin-top: -105px;
+    padding: 100px 18px 80px;
+  }
+  .iconImg{ height: 170px; }
+  .gamesImg{ width: 84px; }
+  .themeBtn img{ width: 80px; height:80px; }
 }
