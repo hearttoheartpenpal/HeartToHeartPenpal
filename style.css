@@ -1,5 +1,6 @@
 *{ box-sizing:border-box; }
 html, body{ height:100%; }
+
 body{
   margin:0;
   font-family:"Poppins", system-ui, -apple-system, Arial, sans-serif;
@@ -9,7 +10,7 @@ body{
 img{ display:block; max-width:100%; height:auto; }
 
 :root{
-  --blush: #fdeaf1;            /* Canva blush */
+  --blush: #fdeaf1;            /* blush pink */
   --darkRose: #1e0f17;         /* deep blackish rose */
   --card: #ffffff;
   --titleRed: #c40000;
@@ -17,7 +18,7 @@ img{ display:block; max-width:100%; height:auto; }
   --shadow: 0 26px 70px rgba(0,0,0,.14);
 }
 
-/* background only */
+/* background only (NO font-color changes) */
 html[data-theme="light"] body{ background: var(--blush); }
 html[data-theme="dark"]  body{ background: var(--darkRose); }
 
@@ -30,9 +31,10 @@ html[data-theme="dark"]  body{ background: var(--darkRose); }
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:8px; /* SAME spacing for sun + moon */
+  gap:8px;              /* same sun/moon spacing */
   user-select:none;
 }
+
 .themeBtn{
   border:none;
   background:transparent;
@@ -40,12 +42,17 @@ html[data-theme="dark"]  body{ background: var(--darkRose); }
   margin:0;
   cursor:pointer;
 }
+
 .themeBtn img{
-  width:86px; /* make both sun & moon same size */
+  width:86px;           /* default (moon size) */
   height:auto;
   transition:transform .15s ease;
 }
 .themeBtn:hover img{ transform: translateY(-2px); }
+
+/* Sun slightly bigger than moon */
+html[data-theme="light"] .themeBtn img{ width:96px; }
+html[data-theme="dark"]  .themeBtn img{ width:86px; }
 
 .themeLabel{
   font-weight:800;
@@ -57,12 +64,12 @@ html[data-theme="dark"]  body{ background: var(--darkRose); }
   backdrop-filter: blur(6px);
 }
 
-/* ===== Main layout (bottom-heavy like Canva) ===== */
+/* ===== Main layout (bottom-heavy) ===== */
 .stage{
   min-height:100vh;
   display:flex;
   justify-content:center;
-  align-items:flex-end;  /* pushes content lower */
+  align-items:flex-end;
   padding: 60px 18px 86px;
 }
 
@@ -72,33 +79,31 @@ html[data-theme="dark"]  body{ background: var(--darkRose); }
   padding-top: 24px;
 }
 
-/* Envelope moved up */
+/* Envelope */
 .envelope{
   width: clamp(420px, 36vw, 640px);
   margin: 0 auto;
   position:relative;
   z-index:3;
-  transform: translateY(-18px); /* UP a bit */
+  transform: translateY(-18px);
 }
 
-/* ONE white card */
+/* ONE white card (moved UP + more horizontal) */
 .card{
   width: min(980px, 90vw);
-  margin: -140px auto 0; /* starts halfway under envelope */
+  margin: -175px auto 0;   /* <-- moved up more */
   background: var(--card);
   border-radius: 14px;
   box-shadow: var(--shadow);
   position:relative;
   z-index:2;
   text-align:center;
-
-  /* make it more horizontal than vertical */
   padding: 110px 56px 70px;
 }
 
-/* Title + subtitle moved up a bit */
+/* Title + subtitle */
 .title{
-  margin: -6px 0 0; /* nudges upward inside card */
+  margin: -6px 0 0;
   font-weight:800;
   color: var(--titleRed);
   font-size: clamp(84px, 7.2vw, 132px);
@@ -113,16 +118,15 @@ html[data-theme="dark"]  body{ background: var(--darkRose); }
   opacity: .9;
 }
 
-/* Icons: same size, in one straight row */
+/* Icons: same size, one straight row */
 .iconRow{
   margin: 46px auto 0;
   display:flex;
   justify-content:space-between;
   align-items:flex-end;
   gap: 24px;
-
-  width: min(760px, 92%);
-  flex-wrap: nowrap; /* keep them in one line */
+  width: min(820px, 92%);
+  flex-wrap: nowrap;
 }
 
 .iconBtn{
@@ -140,14 +144,14 @@ html[data-theme="dark"]  body{ background: var(--darkRose); }
 .iconBtn:hover{ transform: translateY(-4px); }
 
 .iconImg{
-  height: 140px;     /* ALL identical */
+  height: 165px;   /* <-- bigger icons */
   width: auto;
   object-fit: contain;
 }
 
 .iconLabel{
   font-weight:800;
-  font-size: 16px;   /* smaller labels like you wanted */
+  font-size: 14px; /* smaller labels */
   color: var(--text);
 }
 
@@ -163,6 +167,7 @@ html[data-theme="dark"]  body{ background: var(--darkRose); }
   gap: 8px;
   user-select:none;
 }
+
 .gamesBtn{
   border:none;
   background:transparent;
@@ -171,14 +176,15 @@ html[data-theme="dark"]  body{ background: var(--darkRose); }
 }
 .gamesBtn:hover{ transform: translateY(-4px); }
 
+/* WAY smaller games icon */
 .gamesImg{
-  width: 110px; /* smaller */
+  width: 70px;
   height:auto;
 }
 
 .gamesLabel{
   font-weight:800;
-  font-size: 14px; /* smaller text */
+  font-size: 12px;
   color: #111;
   background: rgba(255,255,255,.70);
   padding: 4px 10px;
@@ -186,27 +192,28 @@ html[data-theme="dark"]  body{ background: var(--darkRose); }
   backdrop-filter: blur(6px);
 }
 
-/* ===== Responsive fixes ===== */
+/* ===== Responsive ===== */
 @media (max-width: 900px){
-  .themeBtn img{ width: 78px; }
+  html[data-theme="light"] .themeBtn img{ width:88px; }
+  html[data-theme="dark"]  .themeBtn img{ width:78px; }
 
   .card{
     padding: 100px 18px 64px;
-    margin-top: -125px;
+    margin-top: -160px;
   }
 
   .iconRow{
-    width: min(640px, 96%);
+    width: min(680px, 96%);
     gap: 16px;
   }
 
-  .iconImg{ height: 120px; }
-  .gamesImg{ width: 98px; }
+  .iconImg{ height: 140px; }
+  .gamesImg{ width: 62px; }
 }
 
 @media (max-width: 640px){
   .iconRow{
-    flex-wrap: wrap;          /* only wrap on very small screens */
+    flex-wrap: wrap;
     justify-content:center;
     gap: 28px;
   }
