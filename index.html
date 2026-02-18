@@ -9,12 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
 
-  <!-- IMPORTANT: this makes your Style tab actually work -->
   <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
-  <!-- Theme toggle (top-left) -->
+  <!-- TOP LEFT: theme toggle -->
   <div class="themeWrap">
     <button class="themeBtn" id="themeBtn" type="button" aria-label="Toggle theme">
       <img id="themeIcon" src="./assets/sun.png" alt="Theme icon">
@@ -23,25 +22,27 @@
   </div>
 
   <main class="stage">
-    <div class="layout">
+    <div class="shell">
+      <!-- Envelope (moved up) -->
       <img class="envelope" src="./assets/envelope.png" alt="Envelope">
 
+      <!-- ONE white card only -->
       <section class="card" aria-label="Heart to Heart home">
         <h1 class="title">Heart to Heart</h1>
         <div class="subtitle">—Penpal Program—</div>
 
-        <div class="iconRow">
-          <button class="iconBtn" type="button" data-key="about">
+        <div class="iconRow" aria-label="Navigation">
+          <button class="iconBtn" type="button" id="aboutBtn">
             <img class="iconImg" src="./assets/about.png" alt="About">
             <div class="iconLabel">About</div>
           </button>
 
-          <button class="iconBtn" type="button" data-key="rules">
+          <button class="iconBtn" type="button" id="rulesBtn">
             <img class="iconImg" src="./assets/rules.png" alt="Rules">
             <div class="iconLabel">Rules</div>
           </button>
 
-          <button class="iconBtn" type="button" data-key="contact">
+          <button class="iconBtn" type="button" id="contactBtn">
             <img class="iconImg" src="./assets/contact.png" alt="Contact">
             <div class="iconLabel">Contact</div>
           </button>
@@ -50,7 +51,7 @@
     </div>
   </main>
 
-  <!-- Games fixed bottom-right of WEBSITE (pink background) -->
+  <!-- Games fixed bottom-right of the WEBSITE (pink area) -->
   <div class="gamesFixed">
     <button class="gamesBtn" id="gamesBtn" type="button" aria-label="Games">
       <img class="gamesImg" src="./assets/games.png" alt="Games">
@@ -58,25 +59,6 @@
     <div class="gamesLabel">Games</div>
   </div>
 
-  <script>
-    // Theme toggle (background only)
-    const themeBtn = document.getElementById("themeBtn");
-    const themeIcon = document.getElementById("themeIcon");
-    const themeLabel = document.getElementById("themeLabel");
-
-    function setTheme(theme){
-      document.documentElement.setAttribute("data-theme", theme);
-      themeIcon.src = theme === "dark" ? "./assets/moon.png" : "./assets/sun.png";
-      themeLabel.textContent = theme === "dark" ? "Dark" : "Light";
-      localStorage.setItem("h2h-theme", theme);
-    }
-
-    setTheme(localStorage.getItem("h2h-theme") || "light");
-
-    themeBtn.addEventListener("click", () => {
-      const cur = document.documentElement.getAttribute("data-theme") || "light";
-      setTheme(cur === "light" ? "dark" : "light");
-    });
-  </script>
+  <script src="./script.js"></script>
 </body>
 </html>
