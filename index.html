@@ -5,70 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Heart to Heart — Penpal Program</title>
 
-<!-- Poppins Font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
-<!-- Theme Toggle -->
 <button id="themeToggle" class="themeToggle">
-  <img id="themeIcon" src="./assets/Star.png" alt="Theme Icon">
+  <img id="themeIcon" src="./assets/Star.png" alt="Theme">
 </button>
 
-<div class="container">
+<div class="frame">
 
-  <div class="card">
+  <img src="./assets/envelope.png" class="envelope" alt="Envelope">
 
-    <img src="./assets/envelope.png" class="envelope" alt="Envelope">
+  <div class="panel">
+    <h1>Heart to Heart</h1>
+    <p class="subtitle">—Penpal Program—</p>
 
-    <h1 class="title">Heart to Heart</h1>
-    <div class="subtitle">—Penpal Program—</div>
-
-    <div class="buttonRow">
-
-      <button class="iconButton" onclick="openPanel('about')">
-        About
-      </button>
-
-      <button class="iconButton" onclick="openPanel('rules')">
-        Rules
-      </button>
-
-      <button class="iconButton" onclick="openPanel('contact')">
-        Contact
-      </button>
-
+    <div class="buttons">
+      <button class="iconBtn" data-type="about">About</button>
+      <button class="iconBtn" data-type="rules">Rules</button>
+      <button class="iconBtn" data-type="contact">Contact</button>
     </div>
-
-    <!-- Info Panel -->
-    <div id="infoPanel" class="infoPanel">
-      <div class="panelHeader">
-        <span id="panelTitle"></span>
-        <button onclick="closePanel()" class="closeBtn">✕</button>
-      </div>
-      <div id="panelContent" class="panelContent"></div>
-    </div>
-
   </div>
 
-  <!-- Games Button Bottom Right -->
-  <button class="gamesButton" onclick="openGames()">
+  <button class="gamesBtn" id="gamesBtn">
     <img src="./assets/games.png" alt="Games">
   </button>
 
 </div>
 
+<!-- Info Popup -->
+<div id="infoBox" class="infoBox">
+  <div class="infoHeader">
+    <span id="infoTitle"></span>
+    <button id="closeInfo">✕</button>
+  </div>
+  <div id="infoContent"></div>
+</div>
+
 <!-- Games Modal -->
 <div id="gamesModal" class="gamesModal">
   <div class="gamesContent">
-    <button class="closeBtn" onclick="closeGames()">✕</button>
+    <button id="closeGames">✕</button>
     <h2>Games</h2>
-    <p>Games coming soon 💗</p>
+    <p>Coming soon 💗</p>
   </div>
 </div>
 
