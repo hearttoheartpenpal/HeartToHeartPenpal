@@ -38,18 +38,15 @@ body{
   width: min(1200px, 94vw);
   aspect-ratio: 16 / 9;
   background:#ffffff;
-  border-radius: 14px;         /* Canva rectangle is not super rounded */
-  box-shadow: var(--shadow);
+  border-radius: 14px;
+  box-shadow: 0 26px 70px rgba(0,0,0,.14);
   position:relative;
-
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-
   padding: 60px 40px 54px;
 }
-
 /* envelope bigger */
 .envelope{
   width: clamp(340px, 28vw, 520px);
