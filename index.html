@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./style.css" />
+  <!-- cache-bust so your changes always show -->
+  <link rel="stylesheet" href="./style.css?v=7" />
 </head>
 
 <body>
@@ -23,10 +24,8 @@
 
   <main class="stage">
     <div class="shell">
-      <!-- Envelope -->
       <img class="envelope" src="./assets/envelope.png" alt="Envelope">
 
-      <!-- ONE white card only -->
       <section class="card" aria-label="Heart to Heart home">
         <h1 class="title">Heart to Heart</h1>
         <div class="subtitle">—Penpal Program—</div>
@@ -51,7 +50,7 @@
     </div>
   </main>
 
-  <!-- Games fixed bottom-right of WEBSITE (pink area) -->
+  <!-- Games fixed bottom-right of WEBSITE (pink background) -->
   <div class="gamesFixed">
     <button class="gamesBtn" id="gamesBtn" type="button" aria-label="Games">
       <img class="gamesImg" src="./assets/games.png" alt="Games">
@@ -59,6 +58,6 @@
     <div class="gamesLabel">Games</div>
   </div>
 
-  <script src="./script.js"></script>
+  <script src="./script.js?v=7"></script>
 </body>
 </html>
