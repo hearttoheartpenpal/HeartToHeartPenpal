@@ -57,7 +57,7 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
   font-size:14px;
   color:#111;
   background: rgba(255,255,255,.70);
-  padding:4px 5px;
+  padding:4px 10px;
   border-radius:999px;
   backdrop-filter: blur(6px);
 }
@@ -136,7 +136,7 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
   align-items:center;
   justify-content:flex-start;
 
-  width: 300px;              
+  width: 500px;              
   gap: 18px;
   padding: 8px 10px;
   border-radius: 16px;
@@ -145,7 +145,7 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
 .iconBtn:hover{ transform: translateY(-4px); }
 
 .iconImg{
-  height: 1000px;
+  height: 150px;
   width: auto;
   object-fit: contain;
 }
