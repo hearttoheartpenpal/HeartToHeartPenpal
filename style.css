@@ -153,7 +153,9 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
 
 .iconLabel{
   font-weight:800;
-  font-size: 14px;
+  font-size: 16px;
+  margin-top: 10px;
+  text-align: center;
   color: var(--text);
 }
 
