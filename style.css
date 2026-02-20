@@ -145,7 +145,7 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
 .iconBtn:hover{ transform: translateY(-4px); }
 
 .iconImg{
-  height: 600px;
+  height: 1000px;
   width: auto;
   object-fit: contain;
 }
