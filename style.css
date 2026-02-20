@@ -296,3 +296,8 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
   color:var(--text);
   font-size:18px;
 }
+
+.iconImg{
+  width: 200px !important;
+  height: auto !important;
+}
