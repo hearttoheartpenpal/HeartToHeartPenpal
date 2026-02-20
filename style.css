@@ -252,6 +252,60 @@ html[data-theme="dark"]  .themeBtn img{ width:96px; }
   margin-right:auto;
 }
 
+/* ADD THIS AT VERY BOTTOM — do not replace anything */
+
+/* ENVELOPE OPEN ANIMATION */
+
+.envelopeContainer{
+  position:relative;
+  width: clamp(220px, 20vw, 320px);
+  margin: 0 auto;
+  z-index:3;
+  transform: translateY(-36px);
+}
+
+.envelopeFlap{
+  position:absolute;
+  inset:0;
+  transform-origin: top center;
+  animation: flapOpen .9s cubic-bezier(.22,.9,.32,1) forwards;
+}
+
+.envelopeIcon{
+  position:relative;
+  z-index:2;
+  opacity:0;
+  transform: translateY(40px);
+  animation: letterReveal .8s cubic-bezier(.22,.9,.32,1) .5s forwards;
+}
+
+@keyframes flapOpen{
+  0%{ transform: rotateX(0deg); }
+  100%{ transform: rotateX(180deg); }
+}
+
+@keyframes letterReveal{
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+.pageShell{
+  animation: cardReveal .8s cubic-bezier(.22,.9,.32,1);
+}
+
+@keyframes cardReveal{
+  from{
+    opacity:0;
+    transform: translateY(60px);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
 .backBtn{
   margin-top:40px;
   font-weight:700;
