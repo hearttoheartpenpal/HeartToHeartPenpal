@@ -72,7 +72,7 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
 }
 
 .shell{
-  width:min(1400px, 94vw);
+  width:min(1200px, 94vw);
   position:relative;
   padding-top: 18px;
 }
@@ -118,12 +118,12 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
 }
 
 .iconRow{
-  margin: 44px auto 0;
+  margin: 40px auto 0;
   width: min(1040px, 94%);
   display:flex;
   justify-content: space-between;
   align-items: flex-start;     
-  gap: 34px;
+  gap: 35px;
 }
 
 .iconBtn{
@@ -145,7 +145,7 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
 .iconBtn:hover{ transform: translateY(-4px); }
 
 .iconImg{
-  height: 400px;
+  height: 600px;
   width: auto;
   object-fit: contain;
 }
