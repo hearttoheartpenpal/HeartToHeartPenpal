@@ -123,7 +123,7 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
   display:flex;
   justify-content: center;
   align-items: center;     
-  gap: 80px;
+  gap: 100px;
 }
 
 .iconBtn{
@@ -144,8 +144,8 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
 .iconBtn:hover{ transform: translateY(-4px); }
 
 .iconImg{
-  height: 200px;
-  width: auto;
+  height: auto;
+  width: 180px;
   object-fit: contain;
 }
 
