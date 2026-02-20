@@ -1,54 +1,81 @@
-<!doctype html>
-<html lang="en" data-theme="light">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>About — Heart to Heart</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Title</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-<link rel="stylesheet" href="./style.css">
+    .page-header {
+      width: 100%;
+      background-color: #ffe6eb; /* light pink for top */
+      display: flex;
+      justify-content: center;
+      padding: 40px 0;
+    }
+
+    .icon {
+      width: 120px; /* match the envelope size */
+      height: 120px;
+      object-fit: contain;
+      transform: rotate(0deg); /* fix upside-down issue */
+    }
+
+    .content {
+      position: relative;
+      width: 90%;
+      max-width: 600px;
+      margin-top: -40px; /* overlaps slightly with header if desired */
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #333;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 2em;
+    }
+
+    .page-text {
+      margin-top: 20px;
+      text-align: left;
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="themeWrap">
-<button class="themeBtn" id="themeBtn">
-<img id="themeIcon" src="./assets/sun.png">
-</button>
-<div class="themeLabel" id="themeLabel">Light</div>
-</div>
+  <div class="page-header">
+    <img src="icon-about.png" alt="Icon" class="icon"> <!-- replace with correct icon -->
+  </div>
 
-<main class="stage">
+  <div class="content">
+    <a href="index.html" class="back-button">← Back</a>
 
-<div class="shell pageShell">
+    <h1>About</h1>
 
-<div class="envelopeContainer">
-
-<img class="envelopeFlap" src="./assets/envelope.png">
-<img class="envelopeIcon" src="./assets/about.png">
-
-</div>
-
-<section class="card">
-
-<div class="pageContent">
-
-ABOUT
-
-<br><br>
-
-<button class="backBtn" onclick="window.location.href='./index.html'">
-← Back
-</button>
-
-</div>
-
-</section>
-
-</div>
-
-</main>
-
-<script src="./script.js"></script>
+    <div class="page-text">
+      <p>This is the About page content...</p>
+    </div>
+  </div>
 
 </body>
 </html>
