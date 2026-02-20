@@ -121,9 +121,9 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
   margin: 40px auto 0;
   width: min(1040px, 94%);
   display:flex;
-  justify-content: space-between;
-  align-items: flex-start;     
-  gap: 35px;
+  justify-content: center;
+  align-items: center;     
+  gap: 80px;
 }
 
 .iconBtn{
@@ -134,9 +134,8 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:flex-start;
 
-  width: 500px;              
+  width: auto;              
   gap: 18px;
   padding: 8px 10px;
   border-radius: 16px;
@@ -145,7 +144,7 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
 .iconBtn:hover{ transform: translateY(-4px); }
 
 .iconImg{
-  height: 150px;
+  height: 200px;
   width: auto;
   object-fit: contain;
 }
@@ -204,8 +203,8 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
     width: min(900px, 96%);
     gap: 18px;
   }
-  .iconBtn{ width: 260px; }
-  .iconImg{ height: 450px; }
+  .iconBtn{ width: auto; }
+  .iconImg{ height: 160px; }
 }
 
 @media (max-width: 850px){
