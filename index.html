@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
 
-  <!-- cache-bust so your changes always show -->
   <link rel="stylesheet" href="./style.css?v=7" />
 </head>
 
@@ -31,26 +30,27 @@
         <div class="subtitle">—Penpal Program—</div>
 
         <div class="iconRow" aria-label="Navigation">
-          <button class="iconBtn" type="button" id="aboutBtn">
+          <!-- Use links for navigation -->
+          <a class="iconBtn" href="./about.html">
             <img class="iconImg" src="./assets/about.png" alt="About">
             <div class="iconLabel">About</div>
-          </button>
+          </a> 
 
-          <button class="iconBtn" type="button" id="rulesBtn">
+          <a class="iconBtn" href="./rules.html">
             <img class="iconImg" src="./assets/rules.png" alt="Rules">
             <div class="iconLabel">Rules</div>
-          </button>
+          </a>
 
-          <button class="iconBtn" type="button" id="contactBtn">
+          <a class="iconBtn" href="./contact.html">
             <img class="iconImg" src="./assets/contact.png" alt="Contact">
             <div class="iconLabel">Contact</div>
-          </button>
+          </a>
         </div>
       </section>
     </div>
   </main>
 
-  <!-- Games fixed bottom-right of WEBSITE (pink background) -->
+  <!-- Games fixed bottom-right of WEBSITE -->
   <div class="gamesFixed">
     <button class="gamesBtn" id="gamesBtn" type="button" aria-label="Games">
       <img class="gamesImg" src="./assets/games.png" alt="Games">
@@ -58,6 +58,6 @@
     <div class="gamesLabel">Games</div>
   </div>
 
-  <script src="./script.js?v=7"></script>
+  <script src="./script.js?v=8"></script>
 </body>
 </html>
