@@ -58,6 +58,7 @@
     <div class="gamesLabel">Games</div>
   </div>
 
-  <script src="./script.js?v=7"></script>
+  <!-- ✅ defer fixes “null” errors because script runs after HTML loads -->
+  <script defer src="./script.js?v=7"></script>
 </body>
 </html>
