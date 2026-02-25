@@ -1,64 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Heart to Heart — Penpal Program</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
 
-  <!-- cache-bust so your changes always show -->
-  <link rel="stylesheet" href="./style.css?v=7" />
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- TOP LEFT: theme toggle -->
+
+  <!-- THEME -->
   <div class="themeWrap">
-    <button class="themeBtn" id="themeBtn" type="button" aria-label="Toggle theme">
-      <img id="themeIcon" src="./assets/sun.png" alt="Theme icon">
+    <button id="themeBtn" class="themeBtn">
+      <img id="themeIcon" src="assets/sun.png" alt="Theme">
     </button>
-    <div class="themeLabel" id="themeLabel">Light</div>
+    <div id="themeLabel" class="themeLabel">Light</div>
   </div>
 
   <main class="stage">
     <div class="shell">
-      <img class="envelope" src="./assets/envelope.png" alt="Envelope">
 
-      <section class="card" aria-label="Heart to Heart home">
+      <img class="envelope" src="assets/envelope.png" alt="Envelope">
+
+      <section class="card">
         <h1 class="title">Heart to Heart</h1>
         <div class="subtitle">—Penpal Program—</div>
 
-        <div class="iconRow" aria-label="Navigation">
-          <button class="iconBtn" type="button" id="aboutBtn">
-            <img class="iconImg" src="./assets/about.png" alt="About">
+        <div class="iconRow">
+          <button class="iconBtn">
+            <img src="assets/about.png" class="iconImg">
             <div class="iconLabel">About</div>
           </button>
 
-          <button class="iconBtn" type="button" id="rulesBtn">
-            <img class="iconImg" src="./assets/rules.png" alt="Rules">
+          <button class="iconBtn">
+            <img src="assets/rules.png" class="iconImg">
             <div class="iconLabel">Rules</div>
           </button>
 
-          <button class="iconBtn" type="button" id="contactBtn">
-            <img class="iconImg" src="./assets/contact.png" alt="Contact">
+          <button class="iconBtn">
+            <img src="assets/contact.png" class="iconImg">
             <div class="iconLabel">Contact</div>
           </button>
         </div>
       </section>
+
     </div>
   </main>
 
-  <!-- Games fixed bottom-right of WEBSITE (pink background) -->
   <div class="gamesFixed">
-    <button class="gamesBtn" id="gamesBtn" type="button" aria-label="Games">
-      <img class="gamesImg" src="./assets/games.png" alt="Games">
+    <button class="gamesBtn">
+      <img src="assets/games.png" class="gamesImg">
     </button>
     <div class="gamesLabel">Games</div>
   </div>
 
-  <!-- ✅ defer fixes “null” errors because script runs after HTML loads -->
-  <script defer src="./script.js?v=7"></script>
+  <script src="script.js"></script>
 </body>
 </html>
