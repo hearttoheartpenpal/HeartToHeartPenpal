@@ -1,19 +1,33 @@
-* { box-sizing: border-box; }
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
 }
 
-/* Colors */
+/* ===== COLORS ===== */
 :root{
   --blush: #fdeaf1;
-  --dark: #1e0f17;
+  --darkRose: #1e0f17;
+  --card: #ffffff;
+  --red: #c40000;
 }
 
-html[data-theme="light"] body { background: var(--blush); }
-html[data-theme="dark"] body  { background: var(--dark); }
+/* Theme backgrounds */
+html[data-theme="light"] body {
+  background: var(--blush);
+}
 
-/* ================= THEME ================= */
+html[data-theme="dark"] body {
+  background: var(--darkRose);
+}
+
+/* ===================== */
+/* THEME TOGGLE */
+/* ===================== */
 
 .themeWrap{
   position: fixed;
@@ -32,24 +46,26 @@ html[data-theme="dark"] body  { background: var(--dark); }
 }
 
 .themeBtn img{
-  width: 130px;  /* bigger sun/moon */
+  width: 120px; /* bigger sun */
 }
 
 .themeLabel{
   font-weight: 800;
   font-size: 14px;
   background: rgba(255,255,255,.7);
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 999px;
 }
 
-/* ================= LAYOUT ================= */
+/* ===================== */
+/* LAYOUT */
+/* ===================== */
 
 .stage{
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 20px;
+  padding-top: 40px;
 }
 
 .shell{
@@ -57,88 +73,78 @@ html[data-theme="dark"] body  { background: var(--dark); }
   max-width: 1300px;
 }
 
-/* BIGGER ENVELOPE */
+/* Bigger envelope */
 .envelope{
-  width: 750px;              /* MUCH bigger */
+  width: 720px;
   margin: 0 auto;
   display: block;
-  transform: translateY(-70px); /* move up */
+  transform: translateY(-50px);
 }
 
-/* CARD touching envelope */
+/* Card touching envelope */
 .card{
-  width: 1100px;
-  margin: -340px auto 0;   /* overlaps envelope properly */
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 26px 70px rgba(0,0,0,.14);
+  width: 1000px;
+  margin: -320px auto 0;
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: 0 30px 70px rgba(0,0,0,.12);
   text-align: center;
-  padding: 150px 80px 70px;
+  padding: 130px 70px 70px;
 }
 
+/* ===================== */
 /* TITLE */
+/* ===================== */
+
 .title{
-  color: #c40000;
+  font-size: 110px;
   font-weight: 800;
-  font-size: 120px;
+  color: var(--red);
   margin: 0;
 }
 
 .subtitle{
+  font-size: 28px;
   font-weight: 800;
-  font-size: 30px;
-  margin-top: 10px;
+  margin-top: 12px;
+  color: #222;
 }
 
-/* ================= ICONS ================= */
+/* ===================== */
+/* BUTTONS */
+/* ===================== */
 
-.iconRow{
+.buttonRow{
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;  /* keeps all aligned at top */
-  margin-top: 60px;
+  gap: 40px;
+  margin-top: 70px;
 }
 
-/* Make clickable area big and even */
-.iconBtn{
-  width: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-/* MASSIVE ICONS */
-.iconImg{
-  height: 420px;      /* WAY bigger */
-  width: 300px;
-  object-fit: contain;
-}
-
-/* Normalize uneven PNG cropping */
-#aboutBtn .iconImg{
-  transform: scale(0.95);
-}
-
-#rulesBtn .iconImg{
-  transform: scale(1.0);
-}
-
-#contactBtn .iconImg{
-  transform: translateY(-15px) scale(1.1); /* lifted + slightly bigger */
-}
-
-/* Labels close to icon */
-.iconLabel{
+.mainBtn{
+  flex: 1;
+  padding: 45px 0;
+  font-size: 40px;
   font-weight: 800;
-  font-size: 16px;
-  margin-top: 4px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+
+  background: #fff0f6;
+  color: var(--red);
+
+  box-shadow: 0 18px 50px rgba(0,0,0,.08);
+  transition: all .2s ease;
 }
 
-/* ================= GAMES ================= */
+.mainBtn:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 24px 65px rgba(0,0,0,.18);
+}
+
+/* ===================== */
+/* GAMES */
+/* ===================== */
 
 .gamesFixed{
   position: fixed;
@@ -148,13 +154,33 @@ html[data-theme="dark"] body  { background: var(--dark); }
 }
 
 .gamesImg{
-  width: 90px;   /* slightly bigger */
+  width: 90px;
 }
 
 .gamesLabel{
   font-weight: 800;
   font-size: 12px;
   background: rgba(255,255,255,.7);
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 999px;
+}
+
+/* ===================== */
+/* RESPONSIVE */
+/* ===================== */
+
+@media (max-width: 1100px){
+  .card{
+    width: 92vw;
+  }
+
+  .buttonRow{
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .mainBtn{
+    font-size: 32px;
+    padding: 30px 0;
+  }
 }
