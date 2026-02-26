@@ -4,15 +4,17 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+/* Colors */
 :root{
   --blush: #fdeaf1;
   --dark: #1e0f17;
 }
 
 html[data-theme="light"] body { background: var(--blush); }
-html[data-theme="dark"] body { background: var(--dark); }
+html[data-theme="dark"] body  { background: var(--dark); }
 
-/* THEME */
+/* ================= THEME ================= */
+
 .themeWrap{
   position: fixed;
   top: 22px;
@@ -20,25 +22,17 @@ html[data-theme="dark"] body { background: var(--dark); }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .themeBtn{
-  width: 120px;
-  height: 120px;
-  display: grid;
-  place-items: center;
   border: none;
   background: none;
   cursor: pointer;
 }
 
 .themeBtn img{
-  width: 96px;
-}
-
-html[data-theme="light"] .themeBtn img{
-  width: 132px;
+  width: 130px;  /* bigger sun/moon */
 }
 
 .themeLabel{
@@ -49,7 +43,8 @@ html[data-theme="light"] .themeBtn img{
   border-radius: 999px;
 }
 
-/* LAYOUT */
+/* ================= LAYOUT ================= */
+
 .stage{
   display: flex;
   justify-content: center;
@@ -58,76 +53,102 @@ html[data-theme="light"] .themeBtn img{
 }
 
 .shell{
-  width: 90%;
-  max-width: 1200px;
+  width: 95%;
+  max-width: 1300px;
 }
 
+/* BIGGER ENVELOPE */
 .envelope{
-  width: 2000px;
+  width: 750px;              /* MUCH bigger */
   margin: 0 auto;
   display: block;
-  transform: translateY(-40px);
+  transform: translateY(-70px); /* move up */
 }
 
+/* CARD touching envelope */
 .card{
-  width: 900px;
-  margin: -240px auto 0;
+  width: 1100px;
+  margin: -340px auto 0;   /* overlaps envelope properly */
   background: white;
-  border-radius: 14px;
+  border-radius: 16px;
   box-shadow: 0 26px 70px rgba(0,0,0,.14);
   text-align: center;
-  padding: 120px 40px 60px;
+  padding: 150px 80px 70px;
 }
 
+/* TITLE */
 .title{
   color: #c40000;
   font-weight: 800;
-  font-size: 110px;
+  font-size: 120px;
   margin: 0;
 }
 
 .subtitle{
-  font-weight: 900;
-  font-size: 36px;
+  font-weight: 800;
+  font-size: 30px;
   margin-top: 10px;
 }
+
+/* ================= ICONS ================= */
 
 .iconRow{
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
+  align-items: flex-start;  /* keeps all aligned at top */
+  margin-top: 60px;
 }
 
+/* Make clickable area big and even */
 .iconBtn{
-  width: 500px;
+  width: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
+  gap: 8px;
   border: none;
   background: none;
   cursor: pointer;
 }
 
+/* MASSIVE ICONS */
 .iconImg{
-  height: 260px;
+  height: 420px;      /* WAY bigger */
+  width: 300px;
+  object-fit: contain;
 }
 
+/* Normalize uneven PNG cropping */
+#aboutBtn .iconImg{
+  transform: scale(0.95);
+}
+
+#rulesBtn .iconImg{
+  transform: scale(1.0);
+}
+
+#contactBtn .iconImg{
+  transform: translateY(-15px) scale(1.1); /* lifted + slightly bigger */
+}
+
+/* Labels close to icon */
 .iconLabel{
   font-weight: 800;
-  font-size: 14px;
+  font-size: 16px;
+  margin-top: 4px;
 }
 
-/* GAMES */
+/* ================= GAMES ================= */
+
 .gamesFixed{
   position: fixed;
-  right: 26px;
-  bottom: 22px;
+  right: 30px;
+  bottom: 26px;
   text-align: center;
 }
 
 .gamesImg{
-  width: 70px;
+  width: 90px;   /* slightly bigger */
 }
 
 .gamesLabel{
