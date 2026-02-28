@@ -116,9 +116,9 @@ html[data-theme="dark"] body {
 
 .buttonRow{
   display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  margin-top: 70px;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 80px;
 }
 
 .mainBtn{
