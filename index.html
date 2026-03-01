@@ -1,9 +1,3 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/index.html b/index.html
-index c92f00c1da69973e1eedbb78e25a6df564153b94..f2aaa6d7c3856c4af1c6ffc2951cc4215e6cc05b 100644
---- a/index.html
-+++ b/index.html
-@@ -1,38 +1,79 @@
  <!doctype html>
  <html lang="en" data-theme="light">
  <head>
@@ -17,9 +11,9 @@ index c92f00c1da69973e1eedbb78e25a6df564153b94..f2aaa6d7c3856c4af1c6ffc2951cc421
  
    <!-- cache-bust so your changes always show -->
    <link rel="stylesheet" href="./style.css?v=7" />
-+
-+  <style>
-+    /* Force larger, aligned About/Rules/Contact tiles even if external CSS has competing rules */
+  
+ <style>
+    /* Force larger, aligned About/Rules/Contact tiles even if external CSS has competing rules */
 +    .iconRow {
 +      display: flex !important;
 +      justify-content: center !important;
@@ -83,6 +77,3 @@ index c92f00c1da69973e1eedbb78e25a6df564153b94..f2aaa6d7c3856c4af1c6ffc2951cc421
              <div class="iconLabel">About</div>
            </button>
  
- 
-EOF
-)
