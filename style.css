@@ -77,12 +77,12 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
 
 .card{
   width: 1000px;
-  margin: -230px auto 0; /* slightly less overlap so it looks cleaner */
+  margin: -250px auto 0; /* slightly less overlap so it looks cleaner */
   background: var(--card);
   border-radius: 20px;
   box-shadow: 0 30px 70px rgba(0,0,0,.12);
   text-align: center;
-  padding: 90px 70px 70px;
+  padding: 70px 70px 70px;
 }
 
 /* ================= TITLE ================= */
@@ -107,7 +107,7 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 70px;          /* roomy, like your original */
+  gap: 20px;          /* roomy, like your original */
   margin-top: 60px;
   flex-wrap: nowrap;  /* keep 3 in one row on desktop */
 }
@@ -128,7 +128,7 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
 
 /* The equal-sized icon “frame” that guarantees alignment */
 .iconBox{
-  width: 210px;
+  width: 200px;
   height: 210px;
   display: flex;
   align-items: center;
@@ -145,7 +145,7 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
 /* Fine-tune individual icon proportions (your request) */
 #aboutBtn .iconImg{   transform: scale(0.52); }  /* About smaller */
 #rulesBtn .iconImg{   transform: scale(0.80); }  /* Rules perfect */
-#contactBtn .iconImg{ transform: scale(0.90); }  /* Contact a bit bigger */
+#contactBtn .iconImg{ transform: scale(0.85); }  /* Contact a bit bigger */
 
 .iconLabel{
   margin-top: 10px;   /* smaller gap between icon and text */
