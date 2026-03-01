@@ -169,5 +169,56 @@
 
   <!-- keep the rest of your scripts below (unchanged) -->
   <script src="./script.js?v=7"></script>
+  <script>
+  // ---- Panels (no changes to your theme script needed) ----
+
+  const panels = {
+    aboutBtn: document.getElementById("aboutPanel"),
+    rulesBtn: document.getElementById("rulesPanel"),
+    contactBtn: document.getElementById("contactPanel"),
+  };
+
+  function openPanel(panelEl){
+    if (!panelEl) return;
+    panelEl.classList.add("is-open");
+    panelEl.setAttribute("aria-hidden", "false");
+    document.body.classList.add("noScroll");
+  }
+
+  function closePanel(panelEl){
+    if (!panelEl) return;
+    panelEl.classList.remove("is-open");
+    panelEl.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("noScroll");
+  }
+
+  // Click icon -> open the matching panel
+  ["aboutBtn","rulesBtn","contactBtn"].forEach((btnId) => {
+    const btn = document.getElementById(btnId);
+    const panel = panels[btnId];
+    if (!btn || !panel) return;
+    btn.addEventListener("click", () => openPanel(panel));
+  });
+
+  // Back buttons + clicking outside the card closes
+  document.querySelectorAll("[data-close-panel]").forEach((b) => {
+    b.addEventListener("click", () => {
+      const overlay = b.closest(".panelOverlay");
+      closePanel(overlay);
+    });
+  });
+
+  document.querySelectorAll(".panelOverlay").forEach((overlay) => {
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) closePanel(overlay);
+    });
+  });
+
+  // Esc key closes any open panel
+  window.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    document.querySelectorAll(".panelOverlay.is-open").forEach(closePanel);
+  });
+</script>
 </body>
 </html>
