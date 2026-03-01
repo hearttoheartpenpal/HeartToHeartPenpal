@@ -2,7 +2,7 @@
 
 * { box-sizing: border-box; }
 
-body {
+body{
   margin: 0;
   font-family: "Poppins", sans-serif;
 }
@@ -16,8 +16,8 @@ body {
   --red: #c40000;
 }
 
-html[data-theme="light"] body { background: var(--blush); }
-html[data-theme="dark"] body  { background: var(--darkRose); }
+html[data-theme="light"] body{ background: var(--blush); }
+html[data-theme="dark"] body{ background: var(--darkRose); }
 
 /* ================= THEME ================= */
 
@@ -56,442 +56,330 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
 /* ================= LAYOUT ================= */
 
 .stage{
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 60px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding-top:60px;
 }
 
 .shell{
-  width: 95%;
-  max-width: 1300px;
+  width:95%;
+  max-width:1300px;
 }
 
 .envelope{
-  width: 700px;
-  margin: 0 auto;
-  display: block;
-  height: auto;
+  width:700px;
+  margin:0 auto;
+  display:block;
 }
 
 .card{
-  width: 1090px;
-  margin: -360px auto 0;
-  background: var(--card);
-  border-radius: 20px;
-  box-shadow: 0 30px 70px rgba(0,0,0,.12);
-  text-align: center;
-  padding: 115px 70px 70px;
+  width:1090px;
+  margin:-360px auto 0;
+  background:var(--card);
+  border-radius:20px;
+  box-shadow:0 30px 70px rgba(0,0,0,.12);
+  text-align:center;
+  padding:115px 70px 70px;
 }
 
 /* ================= TITLE ================= */
 
 .title{
-  font-size: 110px;
-  font-weight: 800;
-  color: var(--red);
-  margin: 0;
+  font-size:110px;
+  font-weight:800;
+  color:var(--red);
+  margin:0;
 }
 
 .subtitle{
-  font-size: 34px;
-  font-weight: 800;
-  margin-top: 12px;
-  color: #222;
+  font-size:34px;
+  font-weight:800;
+  margin-top:12px;
+  color:#222;
 }
 
-/* ================= ICON ROW (About, Rules, Contact) ================= */
+/* ================= ICONS ================= */
 
 .iconRow{
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 20px;
-  margin-top: 30px;
-  flex-wrap: wrap;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-top:30px;
+  flex-wrap:wrap;
 }
 
 .iconBtn{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 240px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  background: transparent;
-  border: 0;
-  padding: 0;
-  gap: 10px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:240px;
+  cursor:pointer;
+  background:transparent;
+  border:0;
+  padding:0;
+  gap:10px;
+  transition:.2s ease;
 }
 
-.iconBtn:hover{ transform: translateY(-6px); }
+.iconBtn:hover{ transform:translateY(-6px); }
 
 .iconBox{
-  width: 210px;
-  height: 140px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  width:210px;
+  height:140px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
 }
 
 .iconImg{
-  max-height: 140px;
-  width: auto;
-  height: 100%;
-  object-fit: contain;
-  display: block;
+  max-height:140px;
+  height:100%;
+  object-fit:contain;
 }
 
-/* Home icon fine-tuning */
-#aboutBtn .iconImg{   transform: scale(0.90); }
-#rulesBtn .iconImg{   transform: scale(0.90); }
-#contactBtn .iconImg{ transform: scale(1.00); }
+#aboutBtn .iconImg{ transform:scale(.9); }
+#rulesBtn .iconImg{ transform:scale(.9); }
+#contactBtn .iconImg{ transform:scale(1); }
 
 .iconLabel{
-  margin: 0;
-  padding: 0;
-  margin-top: 2px;
-  font-size: 20px;
-  font-weight: 800;
-  color: #222;
-  text-align: center;
+  font-size:20px;
+  font-weight:800;
+  margin-top:2px;
 }
 
-/* ================= BUTTON ROW ================= */
+/* ================= BUTTONS ================= */
 
 .buttonRow{
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 30px;
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
 }
 
 .mainBtn{
-  width: 280px;
-  height: 120px;
-  font-size: 32px;
-  font-weight: 800;
-  border-radius: 20px;
-  border: none;
-  cursor: pointer;
-  background: #fff0f6;
-  color: var(--red);
-  box-shadow: 0 18px 50px rgba(0,0,0,.08);
-  transition: all .2s ease;
+  width:280px;
+  height:120px;
+  font-size:32px;
+  font-weight:800;
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
+  background:#fff0f6;
+  color:var(--red);
+  box-shadow:0 18px 50px rgba(0,0,0,.08);
+  transition:.2s ease;
 }
 
 .mainBtn:hover{
-  transform: translateY(-6px);
-  box-shadow: 0 24px 65px rgba(0,0,0,.18);
+  transform:translateY(-6px);
+  box-shadow:0 24px 65px rgba(0,0,0,.18);
 }
 
-/* ================= GAMES BUTTON (BOTTOM RIGHT) ================= */
+/* ================= GAMES BUTTON ================= */
 
 .gamesFixed{
-  position: fixed;
-  right: 30px;
-  bottom: 26px;
-  text-align: center;
-  z-index: 50;
+  position:fixed;
+  right:30px;
+  bottom:26px;
+  text-align:center;
+  z-index:50;
 }
 
-.gamesBtn{
-  border: none;
-  background: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-.gamesImg{ width: 90px; height: auto; display: block; }
+.gamesImg{ width:90px; }
 
 .gamesLabel{
-  font-weight: 800;
-  font-size: 12px;
-  background: rgba(255,255,255,.7);
-  padding: 4px 12px;
-  border-radius: 999px;
+  font-weight:800;
+  font-size:12px;
+  background:rgba(255,255,255,.7);
+  padding:4px 12px;
+  border-radius:999px;
 }
 
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 1100px){
-  .card{
-    width: 92vw;
-    padding: 80px 30px 50px;
-    margin-top: -140px;
-  }
-
-  .title{ font-size: 60px; }
-  .subtitle{ font-size: 20px; }
-
-  .envelope{ width: 460px; }
-
-  .iconRow{
-    flex-wrap: wrap;
-    gap: 40px;
-  }
-
-  .iconBtn{ width: 200px; }
-  .iconBox{ width: 140px; height: 140px; }
-  .iconLabel{ font-size: 14px; }
-
-  .buttonRow{
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-
-  .mainBtn{ width: 80%; }
-}
-
-/* ================= PANELS (About/Rules/Contact/Games) ================= */
+/* ================= PANELS ================= */
 
 .panelOverlay{
-  position: fixed;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  z-index: 2000;
-  pointer-events: auto;
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  z-index:2000;
 }
+
+.panelOverlay.is-open{ display:flex; }
 
 html[data-theme="light"] .panelOverlay{
-  background: rgba(253, 234, 241, 0.75);
+  background:rgba(253,234,241,.75);
 }
-
 html[data-theme="dark"] .panelOverlay{
-  background: rgba(30, 15, 23, 0.75);
+  background:rgba(30,15,23,.75);
 }
-
-.panelOverlay.is-open{ display: flex; }
 
 .panelCard{
-  width: min(900px, 92vw);
-  border-radius: 22px;
-  box-shadow: 0 30px 70px rgba(0,0,0,.18);
-  padding: 28px 28px 26px;
-  position: relative;
-  text-align: left;
-  pointer-events: auto;
+  width:min(900px,92vw);
+  border-radius:22px;
+  box-shadow:0 30px 70px rgba(0,0,0,.18);
+  padding:28px;
 }
 
 html[data-theme="light"] .panelCard{
-  background: #ffffff;
-  color: #111;
+  background:#fff;
+  color:#111;
 }
-
 html[data-theme="dark"] .panelCard{
-  background: #24111c;
-  color: #fff;
+  background:#24111c;
+  color:#fff;
 }
 
 .panelTop{
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 12px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:12px;
 }
 
 .panelIcon{
-  width: 90px;
-  height: 90px;
-  object-fit: contain;
+  width:90px;
+  height:90px;
+  object-fit:contain;
 }
 
-/* Panel icon fine-tuning (About stays base; tweak others) */
-#rulesPanel .panelIcon{ transform: scale(1.50); transform-origin: left center; }
-#contactPanel .panelIcon{ transform: scale(1.80); transform-origin: left center; }
-
 .panelTitle{
-  font-size: 34px;
-  font-weight: 800;
-  margin: 0;
+  font-size:34px;
+  font-weight:800;
 }
 
 .panelBody{
-  font-size: 18px;
-  line-height: 1.6;
-  margin-top: 10px;
+  font-size:18px;
+  line-height:1.6;
 }
 
-/* Back button (clean + clickable everywhere) */
 .backBtn{
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  font-weight: 800;
-  font-size: 22px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  padding: 12px 16px;
-  border-radius: 999px;
-
-  position: relative;
-  z-index: 10;
+  border:0;
+  background:rgba(0,0,0,.06);
+  cursor:pointer;
+  font-weight:800;
+  font-size:18px;
+  padding:10px 18px;
+  border-radius:999px;
+  margin-bottom:16px;
 }
 
-html[data-theme="light"] .backBtn{ color: #111; }
-html[data-theme="dark"]  .backBtn{ color: #fff; }
-
-html[data-theme="light"] .backBtn:hover{ background: rgba(0,0,0,.06); }
-html[data-theme="dark"]  .backBtn:hover{ background: rgba(255,255,255,.10); }
-
-/* Contact back button positioning fix */
-#contactPanel .panelCard{ padding-top: 70px; }
-#contactPanel .backBtn{
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  z-index: 9999;
-  width: auto;
-}
-
-/* prevent page scroll when a panel is open */
-body.noScroll{ overflow: hidden; }
+body.noScroll{ overflow:hidden; }
 
 /* ================= TIC TAC TOE ================= */
 
 .tttBoard{
-  width: 360px;
-  height: 360px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 10px;
+  width:380px;
+  height:380px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
 }
 
 .tttCell{
-  background: #ffffff;
-  border: 4px solid #b76a5c;
-  border-radius: 14px;
+  background:#fff;
+  border:4px solid #b76a5c;
+  border-radius:16px;
   display:flex;
   align-items:center;
   justify-content:center;
-  cursor: pointer;
-  user-select:none;
-  font-weight: 800;
-  font-size: 70px;
-  line-height: 1;
-  transition: transform .12s ease;
+  font-size:70px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.12s ease;
 }
 
-.tttCell:hover{ transform: scale(1.04); }
+.tttCell:hover{ transform:scale(1.05); }
 
-html[data-theme="dark"] .tttCell{ background: #2b1a22; }
+html[data-theme="dark"] .tttCell{ background:#2b1a22; }
 
-.tttHeart{ color: #d40000; }
-.tttX{ color: #222; }
-html[data-theme="dark"] .tttX{ color: #f2f2f2; }
-/* ================= WIN POPUP ================= */
+.tttHeart{ color:#d40000; }
+.tttX{ color:#222; }
+html[data-theme="dark"] .tttX{ color:#f2f2f2; }
 
-.winPop{
-  position: fixed;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  z-index: 3000;
-}
-
-html[data-theme="light"] .winPop{ background: rgba(253,234,241,.70); }
-html[data-theme="dark"]  .winPop{ background: rgba(30,15,23,.70); }
-
-.winPop.is-open{ display: flex; }
-
-.winPopCard{
-  width: min(460px, 92vw);
-  border-radius: 22px;
-  padding: 22px 20px 18px;
-  text-align: center;
-  box-shadow: 0 30px 70px rgba(0,0,0,.20);
-  animation: popIn .18s ease-out;
-}
-
-html[data-theme="light"] .winPopCard{ background: #fff; color: #111; }
-html[data-theme="dark"]  .winPopCard{ background: #24111c; color: #fff; }
-
-.winPopText{
-  font-weight: 800;
-  font-size: 34px;
-  margin-bottom: 14px;
-}
-
-.winPopBtn{
-  border: none;
-  cursor: pointer;
-  font-weight: 800;
-  font-size: 18px;
-  border-radius: 999px;
-  padding: 10px 18px;
-  background: #fff0f6;
-  color: #c40000;
-}
-
-@keyframes popIn{
-  from{ transform: scale(.92); opacity: 0; }
-  to{ transform: scale(1); opacity: 1; }
-}
-
-/* little “shake/shift” effect */
-@keyframes wiggle{
-  0%{ transform: translateX(0); }
-  25%{ transform: translateX(-6px); }
-  50%{ transform: translateX(6px); }
-  75%{ transform: translateX(-4px); }
-  100%{ transform: translateX(0); }
-}
-
-.wiggle{ animation: wiggle .28s ease-in-out; }
-
-/* ================= MEMORY GAME ================= */
+/* ================= MEMORY ================= */
 
 .memBoard{
-  width: 360px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  width:440px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
 }
 
 .memCard{
-  height: 82px;
-  border-radius: 14px;
-  border: 4px solid #b76a5c;
-  background: #ffffff;
-  cursor: pointer;
-  user-select: none;
-
+  height:105px;
+  border-radius:18px;
+  border:4px solid rgba(0,0,0,.15);
   display:flex;
   align-items:center;
   justify-content:center;
-
-  font-size: 42px;
-  font-weight: 800;
-
-  transition: transform .12s ease;
+  font-size:48px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.15s ease;
 }
 
-.memCard:hover{ transform: scale(1.03); }
+.memCard:hover{ transform:scale(1.06); }
 
-html[data-theme="dark"] .memCard{ background: #2b1a22; }
+.memCard:nth-child(4n+1){ background:#ffd6e8; }
+.memCard:nth-child(4n+2){ background:#fff4b5; }
+.memCard:nth-child(4n+3){ background:#d6f0ff; }
+.memCard:nth-child(4n+4){ background:#e8ffd6; }
 
-.memHidden{
-  color: transparent; /* hide symbol but keep spacing */
+.memHidden{ color:transparent; }
+.memRevealed{ color:#c40000; }
+.memMatched{ opacity:.6; }
+
+/* ================= WIN POPUP ================= */
+
+.winPop{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:3000;
 }
 
-.memRevealed{
-  color: #d40000;
+.winPop.is-open{ display:flex; }
+
+html[data-theme="light"] .winPop{
+  background:rgba(253,234,241,.7);
+}
+html[data-theme="dark"] .winPop{
+  background:rgba(30,15,23,.7);
 }
 
-.memMatched{
-  opacity: .55;
-  cursor: default;
+.winPopCard{
+  background:#fff;
+  border-radius:22px;
+  padding:26px;
+  text-align:center;
+  box-shadow:0 30px 70px rgba(0,0,0,.2);
+}
+
+html[data-theme="dark"] .winPopCard{
+  background:#24111c;
+  color:#fff;
+}
+
+.winPopText{
+  font-size:34px;
+  font-weight:800;
+  margin-bottom:14px;
+}
+
+.winPopBtn{
+  border:none;
+  background:#fff0f6;
+  color:var(--red);
+  font-weight:800;
+  padding:10px 20px;
+  border-radius:999px;
+  cursor:pointer;
 }
