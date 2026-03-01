@@ -82,7 +82,7 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
   border-radius: 20px;
   box-shadow: 0 30px 70px rgba(0,0,0,.12);
   text-align: center;
-  padding: 70px 70px 70px;
+  padding: 90px 70px 70px;
 }
 
 /* ================= TITLE ================= */
