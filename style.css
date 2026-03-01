@@ -112,34 +112,45 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
   flex-wrap: wrap;  /* keep 3 in one row on desktop */
 }
 
+/* --- ICON TILES: tighten the icon-to-text gap --- */
+
 .iconBtn{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 240px;       /* consistent “tile” width */
+  width: 240px;
   cursor: pointer;
   transition: transform 0.2s ease;
   background: transparent;
   border: 0;
   padding: 0;
+
+  gap: 10px;              /* controls spacing between icon + label */
 }
 
-.iconBtn:hover{ transform: translateY(-6px); }
-
-/* The equal-sized icon “frame” that guarantees alignment */
 .iconBox{
-  width: 200px;
-  height: 210px;
+  width: 210px;
+  height: 140px;          /* <<< makes the box shorter (fixes the big gap) */
   display: flex;
-  align-items: center;
+  align-items: flex-end;  /* <<< pushes icon DOWN inside the box */
   justify-content: center;
 }
 
 .iconImg{
-  width: 100%;
+  max-height: 140px;      /* keeps icon from stretching */
+  width: auto;
   height: 100%;
   object-fit: contain;
   display: block;
+}
+
+.iconLabel{
+  margin: 0;              /* <<< remove extra margin */
+  padding: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #222;
+  text-align: center;
 }
 
 /* Fine-tune individual icon proportions (your request) */
