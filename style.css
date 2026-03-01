@@ -77,12 +77,12 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
 
 .card{
   width: 1000px;
-  margin: -180px auto 0; /* slightly less overlap so it looks cleaner */
+  margin: -230px auto 0; /* slightly less overlap so it looks cleaner */
   background: var(--card);
   border-radius: 20px;
   box-shadow: 0 30px 70px rgba(0,0,0,.12);
   text-align: center;
-  padding: 115px 70px 70px;
+  padding: 90px 70px 70px;
 }
 
 /* ================= TITLE ================= */
@@ -107,7 +107,7 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 90px;          /* roomy, like your original */
+  gap: 70px;          /* roomy, like your original */
   margin-top: 60px;
   flex-wrap: nowrap;  /* keep 3 in one row on desktop */
 }
