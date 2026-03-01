@@ -9,8 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
 
+  <!-- cache-bust so your changes always show -->
   <link rel="stylesheet" href="./style.css?v=7" />
 
+  <!-- ONLY the icon sizing/locking CSS lives here. Everything else stays in style.css -->
   <style>
     /* ---- ICON GRID (About / Rules / Contact) ---- */
     .iconRow{
@@ -70,12 +72,10 @@
   <div class="panelOverlay" id="aboutPanel" aria-hidden="true">
     <div class="panelCard" role="dialog" aria-modal="true" aria-label="About panel">
       <button class="backBtn" type="button" data-close-panel>← Back</button>
-
       <div class="panelTop">
         <img class="panelIcon" src="./assets/about.png" alt="">
         <h2 class="panelTitle">About</h2>
       </div>
-
       <div class="panelBody">
         <p><strong>Heart to Heart</strong> is a penpal program connecting students and seniors to share stories, encouragement, and friendship.</p>
         <p>Add your About text here (mission, how it works, who it’s for, etc.).</p>
@@ -86,12 +86,10 @@
   <div class="panelOverlay" id="rulesPanel" aria-hidden="true">
     <div class="panelCard" role="dialog" aria-modal="true" aria-label="Rules panel">
       <button class="backBtn" type="button" data-close-panel>← Back</button>
-
       <div class="panelTop">
         <img class="panelIcon" src="./assets/rules.png" alt="">
         <h2 class="panelTitle">Rules</h2>
       </div>
-
       <div class="panelBody">
         <ul>
           <li>Be kind and respectful.</li>
@@ -106,12 +104,10 @@
   <div class="panelOverlay" id="contactPanel" aria-hidden="true">
     <div class="panelCard" role="dialog" aria-modal="true" aria-label="Contact panel">
       <button class="backBtn" type="button" data-close-panel>← Back</button>
-
       <div class="panelTop">
         <img class="panelIcon" src="./assets/contact.png" alt="">
         <h2 class="panelTitle">Contact</h2>
       </div>
-
       <div class="panelBody">
         <p>Email: <strong>yourname@example.com</strong></p>
         <p>Instagram: <strong>@yourhandle</strong></p>
@@ -134,7 +130,7 @@
       <div class="panelBody">
         <p id="gamesIntro"><strong>Pick a game:</strong></p>
 
-        <!-- menu -->
+        <!-- Menu buttons -->
         <div class="buttonRow" id="gamesMenu" style="margin-top:16px; gap:16px; flex-wrap:wrap;">
           <button class="mainBtn" type="button" id="tttBtn" style="width:240px;height:90px;font-size:24px;">
             Tic-Tac-Toe
@@ -145,7 +141,7 @@
           </button>
         </div>
 
-        <!-- Tic Tac Toe UI -->
+        <!-- ================= TIC TAC TOE UI ================= -->
         <div id="tttGame" style="display:none; margin-top:18px; text-align:center;">
           <div id="tttStatus" style="font-weight:800; margin-bottom:12px;">Hearts turn 💗</div>
           <div id="tttBoard" class="tttBoard" aria-label="Tic tac toe board"></div>
@@ -161,8 +157,32 @@
           </div>
         </div>
 
-        <p id="gamesNote" style="margin-top:18px; font-weight:700;">(We can add Memory next.)</p>
+        <!-- ================= MEMORY UI ================= -->
+        <div id="memGame" style="display:none; margin-top:18px; text-align:center;">
+          <div id="memStatus" style="font-weight:800; margin-bottom:12px;">Find all the matching pairs 💗</div>
+          <div id="memBoard" class="memBoard" aria-label="Memory board"></div>
+
+          <div style="margin-top:16px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+            <button class="mainBtn" type="button" id="memReset" style="width:200px;height:70px;font-size:20px;">
+              Reset
+            </button>
+
+            <button class="mainBtn" type="button" id="memBackToMenu" style="width:240px;height:70px;font-size:20px;">
+              ← Back to Games
+            </button>
+          </div>
+        </div>
+
+        <p id="gamesNote" style="margin-top:18px; font-weight:700;">(More games soon.)</p>
       </div>
+    </div>
+  </div>
+
+  <!-- ================= WINNER POPUP (used by BOTH games) ================= -->
+  <div id="winPop" class="winPop" aria-hidden="true">
+    <div class="winPopCard">
+      <div id="winPopText" class="winPopText">Winner!</div>
+      <button class="winPopBtn" type="button" id="winPopClose">OK</button>
     </div>
   </div>
 
@@ -204,6 +224,7 @@
             <div class="iconLabel">Contact</div>
           </button>
         </div>
+
       </section>
     </div>
   </main>
@@ -216,10 +237,10 @@
     <div class="gamesLabel">Games</div>
   </div>
 
-  <!-- Your theme toggle script (unchanged) -->
+  <!-- keep your existing theme script exactly as-is -->
   <script src="./script.js?v=7"></script>
 
-  <!-- Panels + Games + TicTacToe script -->
+  <!-- panels + games script (safe, does not modify script.js) -->
   <script>
     // ================= PANELS =================
     const panels = {
@@ -273,44 +294,76 @@
     window.addEventListener("keydown", (e) => {
       if (e.key !== "Escape") return;
       document.querySelectorAll(".panelOverlay.is-open").forEach(closePanel);
+      closeWinPop();
     });
 
-    // ================= GAMES: Tic Tac Toe =================
-    const tttBtn = document.getElementById("tttBtn");
-    const memoryBtn = document.getElementById("memoryBtn");
+    // ================= WIN POPUP (both games) =================
+    const winPop = document.getElementById("winPop");
+    const winPopText = document.getElementById("winPopText");
+    const winPopClose = document.getElementById("winPopClose");
 
+    function showWinPop(text){
+      if (!winPop || !winPopText) return;
+      winPopText.textContent = text;
+      winPop.classList.add("is-open");
+      winPop.setAttribute("aria-hidden", "false");
+    }
+
+    function closeWinPop(){
+      if (!winPop) return;
+      winPop.classList.remove("is-open");
+      winPop.setAttribute("aria-hidden", "true");
+    }
+
+    if (winPopClose) winPopClose.addEventListener("click", closeWinPop);
+    if (winPop) {
+      winPop.addEventListener("click", (e) => {
+        if (e.target === winPop) closeWinPop();
+      });
+    }
+
+    // ================= GAMES: shared menu control =================
     const gamesMenu = document.getElementById("gamesMenu");
     const gamesIntro = document.getElementById("gamesIntro");
     const gamesNote = document.getElementById("gamesNote");
 
     const tttGame = document.getElementById("tttGame");
-    const tttBoard = document.getElementById("tttBoard");
-    const tttReset = document.getElementById("tttReset");
-    const tttBackToMenu = document.getElementById("tttBackToMenu");
-    const tttStatus = document.getElementById("tttStatus");
-
-    let tttTurn = "H"; // H = hearts, X = X
-    let tttState = Array(9).fill(null);
-    let tttLocked = false;
-
-    function showTTT(){
-      if (gamesMenu) gamesMenu.style.display = "none";
-      if (gamesIntro) gamesIntro.style.display = "none";
-      if (gamesNote) gamesNote.style.display = "none";
-      if (tttGame) tttGame.style.display = "block";
-      initTTT();
-    }
+    const memGame = document.getElementById("memGame");
 
     function showGamesMenu(){
+      closeWinPop();
       if (tttGame) tttGame.style.display = "none";
+      if (memGame) memGame.style.display = "none";
+
       if (gamesMenu) gamesMenu.style.display = "flex";
       if (gamesIntro) gamesIntro.style.display = "block";
       if (gamesNote) gamesNote.style.display = "block";
     }
 
+    // ================= TIC TAC TOE =================
+    const tttBtn = document.getElementById("tttBtn");
+    const tttBoard = document.getElementById("tttBoard");
+    const tttReset = document.getElementById("tttReset");
+    const tttBackToMenu = document.getElementById("tttBackToMenu");
+    const tttStatus = document.getElementById("tttStatus");
+
+    let tttTurn = "H";
+    let tttState = Array(9).fill(null);
+    let tttLocked = false;
+
+    function showTTT(){
+      closeWinPop();
+      if (gamesMenu) gamesMenu.style.display = "none";
+      if (gamesIntro) gamesIntro.style.display = "none";
+      if (gamesNote) gamesNote.style.display = "none";
+      if (memGame) memGame.style.display = "none";
+
+      if (tttGame) tttGame.style.display = "block";
+      initTTT();
+    }
+
     function initTTT(){
       if (!tttBoard) return;
-
       tttTurn = "H";
       tttState = Array(9).fill(null);
       tttLocked = false;
@@ -349,6 +402,11 @@
       const result = checkTTT();
       if (result){
         tttLocked = true;
+
+        if (result === "H") showWinPop("Hearts win! 💗");
+        else if (result === "X") showWinPop("X wins! ✖️");
+        else showWinPop("It’s a tie!");
+
         if (tttStatus){
           tttStatus.textContent =
             result === "H" ? "Hearts win! 💗" :
@@ -364,13 +422,11 @@
         [0,3,6],[1,4,7],[2,5,8],
         [0,4,8],[2,4,6]
       ];
-
       for (const [a,b,c] of w){
         if (tttState[a] && tttState[a] === tttState[b] && tttState[a] === tttState[c]){
           return tttState[a];
         }
       }
-
       if (tttState.every(Boolean)) return "T";
       return null;
     }
@@ -379,7 +435,127 @@
     if (tttReset) tttReset.addEventListener("click", initTTT);
     if (tttBackToMenu) tttBackToMenu.addEventListener("click", showGamesMenu);
 
-    if (memoryBtn) memoryBtn.addEventListener("click", () => alert("Memory coming next!"));
+    // ================= MEMORY GAME =================
+    const memoryBtn = document.getElementById("memoryBtn");
+    const memBoard = document.getElementById("memBoard");
+    const memReset = document.getElementById("memReset");
+    const memBackToMenu = document.getElementById("memBackToMenu");
+    const memStatus = document.getElementById("memStatus");
+
+    let memFirst = null;
+    let memSecond = null;
+    let memLock = false;
+    let memMatches = 0;
+
+    const memSymbolsBase = ["♥","✿","★","☾","✉","❀","☁","♫"];
+
+    function shuffle(arr){
+      const a = [...arr];
+      for (let i=a.length-1; i>0; i--){
+        const j = Math.floor(Math.random() * (i+1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function showMemory(){
+      closeWinPop();
+      if (gamesMenu) gamesMenu.style.display = "none";
+      if (gamesIntro) gamesIntro.style.display = "none";
+      if (gamesNote) gamesNote.style.display = "none";
+      if (tttGame) tttGame.style.display = "none";
+
+      if (memGame) memGame.style.display = "block";
+      initMemory();
+    }
+
+    function initMemory(){
+      if (!memBoard) return;
+      memFirst = null;
+      memSecond = null;
+      memLock = false;
+      memMatches = 0;
+
+      if (memStatus) memStatus.textContent = "Find all the matching pairs 💗";
+
+      const symbols = shuffle([...memSymbolsBase, ...memSymbolsBase]);
+      memBoard.innerHTML = "";
+
+      symbols.forEach((sym, idx) => {
+        const card = document.createElement("div");
+        card.className = "memCard memHidden";
+        card.dataset.sym = sym;
+        card.dataset.idx = String(idx);
+        card.textContent = sym;
+        card.addEventListener("click", () => onMemClick(card));
+        memBoard.appendChild(card);
+      });
+    }
+
+    function reveal(card){
+      card.classList.remove("memHidden");
+      card.classList.add("memRevealed");
+    }
+
+    function hide(card){
+      card.classList.add("memHidden");
+      card.classList.remove("memRevealed");
+    }
+
+    function markMatched(card){
+      card.classList.add("memMatched");
+      card.style.pointerEvents = "none";
+    }
+
+    function onMemClick(card){
+      if (memLock) return;
+      if (card.classList.contains("memMatched")) return;
+      if (!card.classList.contains("memHidden")) return;
+
+      reveal(card);
+
+      if (!memFirst){
+        memFirst = card;
+        return;
+      }
+
+      memSecond = card;
+      memLock = true;
+
+      const a = memFirst.dataset.sym;
+      const b = memSecond.dataset.sym;
+
+      if (a === b){
+        markMatched(memFirst);
+        markMatched(memSecond);
+        memMatches++;
+
+        memFirst = null;
+        memSecond = null;
+        memLock = false;
+
+        if (memStatus) memStatus.textContent = `Matches: ${memMatches}/8`;
+
+        if (memMatches === 8){
+          if (memStatus) memStatus.textContent = "Winner! 💗";
+          showWinPop("You matched them all! 💗");
+        }
+
+      } else {
+        setTimeout(() => {
+          hide(memFirst);
+          hide(memSecond);
+          memFirst = null;
+          memSecond = null;
+          memLock = false;
+          if (memStatus) memStatus.textContent = "Try again 💗";
+        }, 650);
+      }
+    }
+
+    if (memoryBtn) memoryBtn.addEventListener("click", showMemory);
+    if (memReset) memReset.addEventListener("click", initMemory);
+    if (memBackToMenu) memBackToMenu.addEventListener("click", showGamesMenu);
   </script>
 
 </body>
