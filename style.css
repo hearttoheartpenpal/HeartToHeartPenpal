@@ -143,7 +143,7 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
 }
 
 /* Fine-tune individual icon proportions (your request) */
-#aboutBtn .iconImg{   transform: scale(0.82); }  /* About smaller */
+#aboutBtn .iconImg{   transform: scale(0.72); }  /* About smaller */
 #rulesBtn .iconImg{   transform: scale(1.00); }  /* Rules perfect */
 #contactBtn .iconImg{ transform: scale(1.10); }  /* Contact a bit bigger */
 
