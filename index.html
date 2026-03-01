@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
 
-  <!-- cache-bust so your changes always show -->
   <link rel="stylesheet" href="./style.css?v=7" />
 
   <style>
@@ -121,7 +120,8 @@
     </div>
   </div>
 
-  <!-- NEW: Games panel -->
+  <!-- ================= GAMES PANEL ================= -->
+
   <div class="panelOverlay" id="gamesPanel" aria-hidden="true">
     <div class="panelCard" role="dialog" aria-modal="true" aria-label="Games panel">
       <button class="backBtn" type="button" data-close-panel>← Back</button>
@@ -132,9 +132,10 @@
       </div>
 
       <div class="panelBody">
-        <p>Pick a game:</p>
+        <p id="gamesIntro"><strong>Pick a game:</strong></p>
 
-        <div class="buttonRow" style="margin-top:16px; gap:16px; flex-wrap:wrap;">
+        <!-- menu -->
+        <div class="buttonRow" id="gamesMenu" style="margin-top:16px; gap:16px; flex-wrap:wrap;">
           <button class="mainBtn" type="button" id="tttBtn" style="width:240px;height:90px;font-size:24px;">
             Tic-Tac-Toe
           </button>
@@ -144,7 +145,23 @@
           </button>
         </div>
 
-        <p style="margin-top:18px; font-weight:700;">(We can add the actual games next.)</p>
+        <!-- Tic Tac Toe UI -->
+        <div id="tttGame" style="display:none; margin-top:18px; text-align:center;">
+          <div id="tttStatus" style="font-weight:800; margin-bottom:12px;">Hearts turn 💗</div>
+          <div id="tttBoard" class="tttBoard" aria-label="Tic tac toe board"></div>
+
+          <div style="margin-top:16px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+            <button class="mainBtn" type="button" id="tttReset" style="width:200px;height:70px;font-size:20px;">
+              Reset
+            </button>
+
+            <button class="mainBtn" type="button" id="tttBackToMenu" style="width:240px;height:70px;font-size:20px;">
+              ← Back to Games
+            </button>
+          </div>
+        </div>
+
+        <p id="gamesNote" style="margin-top:18px; font-weight:700;">(We can add Memory next.)</p>
       </div>
     </div>
   </div>
@@ -187,12 +204,11 @@
             <div class="iconLabel">Contact</div>
           </button>
         </div>
-
       </section>
     </div>
   </main>
 
-  <!-- Bottom-right Games button (uses your existing CSS classes) -->
+  <!-- Bottom-right Games button -->
   <div class="gamesFixed">
     <button class="gamesBtn" id="gamesBtn" type="button" aria-label="Open games">
       <img class="gamesImg" src="./assets/games.png" alt="Games">
@@ -200,11 +216,12 @@
     <div class="gamesLabel">Games</div>
   </div>
 
-  <!-- keep your existing theme script exactly as-is -->
+  <!-- Your theme toggle script (unchanged) -->
   <script src="./script.js?v=7"></script>
 
-  <!-- panels script (added, does not modify script.js) -->
+  <!-- Panels + Games + TicTacToe script -->
   <script>
+    // ================= PANELS =================
     const panels = {
       aboutBtn: document.getElementById("aboutPanel"),
       rulesBtn: document.getElementById("rulesPanel"),
@@ -226,7 +243,6 @@
       document.body.classList.remove("noScroll");
     }
 
-    // open panels
     ["aboutBtn","rulesBtn","contactBtn"].forEach((btnId) => {
       const btn = document.getElementById(btnId);
       const panel = panels[btnId];
@@ -234,43 +250,136 @@
       btn.addEventListener("click", () => openPanel(panel));
     });
 
-    // games button opens games panel
     const gamesBtn = document.getElementById("gamesBtn");
     if (gamesBtn && panels.gamesBtn) {
       gamesBtn.addEventListener("click", () => openPanel(panels.gamesBtn));
     }
 
-    // close handler for ALL back buttons
     document.addEventListener("click", (e) => {
       const closeBtn = e.target.closest("[data-close-panel]");
       if (!closeBtn) return;
-
       e.preventDefault();
       e.stopPropagation();
-
       const overlay = closeBtn.closest(".panelOverlay");
       if (overlay) closePanel(overlay);
     });
 
-    // click outside card closes
     document.querySelectorAll(".panelOverlay").forEach((overlay) => {
       overlay.addEventListener("click", (e) => {
         if (e.target === overlay) closePanel(overlay);
       });
     });
 
-    // Esc closes any open panel
     window.addEventListener("keydown", (e) => {
       if (e.key !== "Escape") return;
       document.querySelectorAll(".panelOverlay.is-open").forEach(closePanel);
     });
 
-    // temporary actions for game buttons
+    // ================= GAMES: Tic Tac Toe =================
     const tttBtn = document.getElementById("tttBtn");
     const memoryBtn = document.getElementById("memoryBtn");
 
-    if (tttBtn) tttBtn.addEventListener("click", () => alert("Tic-Tac-Toe coming next!"));
-    if (memoryBtn) memoryBtn.addEventListener("click", () => alert("Memory game coming next!"));
+    const gamesMenu = document.getElementById("gamesMenu");
+    const gamesIntro = document.getElementById("gamesIntro");
+    const gamesNote = document.getElementById("gamesNote");
+
+    const tttGame = document.getElementById("tttGame");
+    const tttBoard = document.getElementById("tttBoard");
+    const tttReset = document.getElementById("tttReset");
+    const tttBackToMenu = document.getElementById("tttBackToMenu");
+    const tttStatus = document.getElementById("tttStatus");
+
+    let tttTurn = "H"; // H = hearts, X = X
+    let tttState = Array(9).fill(null);
+    let tttLocked = false;
+
+    function showTTT(){
+      if (gamesMenu) gamesMenu.style.display = "none";
+      if (gamesIntro) gamesIntro.style.display = "none";
+      if (gamesNote) gamesNote.style.display = "none";
+      if (tttGame) tttGame.style.display = "block";
+      initTTT();
+    }
+
+    function showGamesMenu(){
+      if (tttGame) tttGame.style.display = "none";
+      if (gamesMenu) gamesMenu.style.display = "flex";
+      if (gamesIntro) gamesIntro.style.display = "block";
+      if (gamesNote) gamesNote.style.display = "block";
+    }
+
+    function initTTT(){
+      if (!tttBoard) return;
+
+      tttTurn = "H";
+      tttState = Array(9).fill(null);
+      tttLocked = false;
+      if (tttStatus) tttStatus.textContent = "Hearts turn 💗";
+
+      tttBoard.innerHTML = "";
+      for (let i = 0; i < 9; i++){
+        const cell = document.createElement("div");
+        cell.className = "tttCell";
+        cell.dataset.i = String(i);
+        cell.addEventListener("click", onTTTClick);
+        tttBoard.appendChild(cell);
+      }
+    }
+
+    function onTTTClick(e){
+      if (tttLocked) return;
+      const cell = e.currentTarget;
+      const i = Number(cell.dataset.i);
+      if (tttState[i]) return;
+
+      if (tttTurn === "H"){
+        tttState[i] = "H";
+        cell.textContent = "♥";
+        cell.classList.add("tttHeart");
+        tttTurn = "X";
+        if (tttStatus) tttStatus.textContent = "X turn ✖️";
+      } else {
+        tttState[i] = "X";
+        cell.textContent = "X";
+        cell.classList.add("tttX");
+        tttTurn = "H";
+        if (tttStatus) tttStatus.textContent = "Hearts turn 💗";
+      }
+
+      const result = checkTTT();
+      if (result){
+        tttLocked = true;
+        if (tttStatus){
+          tttStatus.textContent =
+            result === "H" ? "Hearts win! 💗" :
+            result === "X" ? "X wins! ✖️" :
+            "It’s a tie!";
+        }
+      }
+    }
+
+    function checkTTT(){
+      const w = [
+        [0,1,2],[3,4,5],[6,7,8],
+        [0,3,6],[1,4,7],[2,5,8],
+        [0,4,8],[2,4,6]
+      ];
+
+      for (const [a,b,c] of w){
+        if (tttState[a] && tttState[a] === tttState[b] && tttState[a] === tttState[c]){
+          return tttState[a];
+        }
+      }
+
+      if (tttState.every(Boolean)) return "T";
+      return null;
+    }
+
+    if (tttBtn) tttBtn.addEventListener("click", showTTT);
+    if (tttReset) tttReset.addEventListener("click", initTTT);
+    if (tttBackToMenu) tttBackToMenu.addEventListener("click", showGamesMenu);
+
+    if (memoryBtn) memoryBtn.addEventListener("click", () => alert("Memory coming next!"));
   </script>
 
 </body>
