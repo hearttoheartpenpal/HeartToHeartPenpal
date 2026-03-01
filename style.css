@@ -88,7 +88,7 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
 /* ================= TITLE ================= */
 
 .title{
-  font-size: 140px;
+  font-size: 120px;
   font-weight: 800;
   color: var(--red);
   margin: 0;
