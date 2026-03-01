@@ -36,22 +36,26 @@ html[data-theme="dark"] body {
   flex-direction: column;
   align-items: center;
   gap: 6px;
+  z-index: 50;
 }
 
 .themeBtn {
   border: none;
   background: none;
   cursor: pointer;
+  padding: 0;
 }
 
 .themeBtn img {
   width: 130px;
+  height: auto;
+  display: block;
 }
 
 .themeLabel {
   font-weight: 800;
   font-size: 14px;
-  background: rgba(255,255,255,.7);
+  background: rgba(255, 255, 255, 0.7);
   padding: 4px 12px;
   border-radius: 999px;
 }
@@ -74,6 +78,7 @@ html[data-theme="dark"] body {
   width: 750px;
   margin: 0 auto;
   display: block;
+  height: auto;
 }
 
 .card {
@@ -81,7 +86,7 @@ html[data-theme="dark"] body {
   margin: -200px auto 0;
   background: var(--card);
   border-radius: 20px;
-  box-shadow: 0 30px 70px rgba(0,0,0,.12);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
   text-align: center;
   padding: 120px 70px 70px;
 }
@@ -104,39 +109,56 @@ html[data-theme="dark"] body {
 
 /* ================= ICON ROW (About, Rules, Contact) ================= */
 
+/* Same look as yours, but now perfectly aligned + same size */
 .iconRow {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 80px;
+  gap: clamp(24px, 5vw, 80px);
   margin-top: 60px;
+  flex-wrap: wrap;
 }
 
 .iconBtn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-decoration: none;
-  width: 150px;
+  width: clamp(210px, 24vw, 270px);
   cursor: pointer;
   transition: transform 0.2s ease;
+
+  /* important so buttons don't inherit weird styles */
+  background: transparent;
+  border: 0;
+  padding: 0;
 }
 
 .iconBtn:hover {
   transform: translateY(-6px);
 }
 
+/* This box forces ALL icons to occupy the same exact space */
+.iconBox {
+  width: clamp(190px, 21vw, 245px);
+  height: clamp(190px, 21vw, 245px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .iconImg {
-  width: 120px;
-  height: 120px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  display: block;
 }
 
 .iconLabel {
   font-size: 18px;
   font-weight: 800;
   color: #222;
-  margin-top: 6px;
+  margin-top: 10px;
+  text-align: center;
 }
 
 /* ================= BUTTON ROW ================= */
@@ -158,13 +180,13 @@ html[data-theme="dark"] body {
   cursor: pointer;
   background: #fff0f6;
   color: var(--red);
-  box-shadow: 0 18px 50px rgba(0,0,0,.08);
-  transition: all .2s ease;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
 }
 
 .mainBtn:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 65px rgba(0,0,0,.18);
+  box-shadow: 0 24px 65px rgba(0, 0, 0, 0.18);
 }
 
 /* ================= GAMES ================= */
@@ -174,22 +196,26 @@ html[data-theme="dark"] body {
   right: 30px;
   bottom: 26px;
   text-align: center;
+  z-index: 50;
 }
 
 .gamesBtn {
   border: none;
   background: none;
   cursor: pointer;
+  padding: 0;
 }
 
 .gamesImg {
   width: 90px;
+  height: auto;
+  display: block;
 }
 
 .gamesLabel {
   font-weight: 800;
   font-size: 12px;
-  background: rgba(255,255,255,.7);
+  background: rgba(255, 255, 255, 0.7);
   padding: 4px 12px;
   border-radius: 999px;
 }
@@ -214,9 +240,9 @@ html[data-theme="dark"] body {
     gap: 40px;
   }
 
-  .iconImg {
-    width: 80px;
-    height: 80px;
+  .iconBox {
+    width: 120px;
+    height: 120px;
   }
 
   .iconLabel {
