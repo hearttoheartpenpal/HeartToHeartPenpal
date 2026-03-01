@@ -253,3 +253,95 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
 
   .mainBtn{ width: 80%; }
 }
+/* ================= PANELS (About/Rules/Contact) ================= */
+
+.panelOverlay {
+  position: fixed;
+  inset: 0;
+  display: none;              /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 2000;
+}
+
+/* light/dark aware overlay */
+html[data-theme="light"] .panelOverlay {
+  background: rgba(253, 234, 241, 0.75); /* blush w/ opacity */
+}
+
+html[data-theme="dark"] .panelOverlay {
+  background: rgba(30, 15, 23, 0.75);    /* darkRose w/ opacity */
+}
+
+.panelOverlay.is-open {
+  display: flex;
+}
+
+.panelCard {
+  width: min(900px, 92vw);
+  border-radius: 22px;
+  box-shadow: 0 30px 70px rgba(0,0,0,.18);
+  padding: 28px 28px 26px;
+  position: relative;
+  text-align: left;
+}
+
+/* light/dark aware card */
+html[data-theme="light"] .panelCard {
+  background: #ffffff;
+  color: #111;
+}
+
+html[data-theme="dark"] .panelCard {
+  background: #24111c;
+  color: #fff;
+}
+
+.panelTop {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.panelIcon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.panelTitle {
+  font-size: 34px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.panelBody {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+/* back arrow button */
+.backBtn {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 999px;
+}
+
+html[data-theme="light"] .backBtn { color: #111; }
+html[data-theme="dark"]  .backBtn { color: #fff; }
+
+html[data-theme="light"] .backBtn:hover { background: rgba(0,0,0,.06); }
+html[data-theme="dark"]  .backBtn:hover { background: rgba(255,255,255,.10); }
+
+/* optional: prevent page scroll when a panel is open */
+body.noScroll { overflow: hidden; }
