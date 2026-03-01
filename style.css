@@ -69,7 +69,7 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
 
 /* Smaller top envelope (you asked) */
 .envelope{
-  width: 580px;          /* was 750 */
+  width: 650px;          /* was 750 */
   margin: 0 auto;
   display: block;
   height: auto;
@@ -108,8 +108,8 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
   justify-content: center;
   align-items: flex-start;
   gap: 15px;          /* roomy, like your original */
-  margin-top: 60px;
-  flex-wrap: nowrap;  /* keep 3 in one row on desktop */
+  margin-top: 40px;
+  flex-wrap: wrap;  /* keep 3 in one row on desktop */
 }
 
 .iconBtn{
