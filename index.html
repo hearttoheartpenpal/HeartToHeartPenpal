@@ -486,7 +486,7 @@
         card.className = "memCard memHidden";
         card.dataset.sym = sym;
         card.dataset.idx = String(idx);
-        card.textContent = sym;
+        card.innerHTML = `<span class="memSym">${sym}</span>`;
         card.addEventListener("click", () => onMemClick(card));
         memBoard.appendChild(card);
       });
