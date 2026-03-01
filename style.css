@@ -1,8 +1,6 @@
 /* ================= RESET ================= */
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -11,24 +9,19 @@ body {
 
 /* ================= COLORS ================= */
 
-:root {
+:root{
   --blush: #fdeaf1;
   --darkRose: #1e0f17;
   --card: #ffffff;
   --red: #c40000;
 }
 
-html[data-theme="light"] body {
-  background: var(--blush);
-}
-
-html[data-theme="dark"] body {
-  background: var(--darkRose);
-}
+html[data-theme="light"] body { background: var(--blush); }
+html[data-theme="dark"] body  { background: var(--darkRose); }
 
 /* ================= THEME ================= */
 
-.themeWrap {
+.themeWrap{
   position: fixed;
   top: 24px;
   left: 24px;
@@ -39,68 +32,69 @@ html[data-theme="dark"] body {
   z-index: 50;
 }
 
-.themeBtn {
+.themeBtn{
   border: none;
   background: none;
   cursor: pointer;
   padding: 0;
 }
 
-.themeBtn img {
+.themeBtn img{
   width: 130px;
   height: auto;
   display: block;
 }
 
-.themeLabel {
+.themeLabel{
   font-weight: 800;
   font-size: 14px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255,255,255,.7);
   padding: 4px 12px;
   border-radius: 999px;
 }
 
 /* ================= LAYOUT ================= */
 
-.stage {
+.stage{
   display: flex;
   justify-content: center;
   align-items: flex-start;
   padding-top: 60px;
 }
 
-.shell {
+.shell{
   width: 95%;
   max-width: 1300px;
 }
 
-.envelope {
-  width: 750px;
+/* Smaller top envelope (you asked) */
+.envelope{
+  width: 580px;          /* was 750 */
   margin: 0 auto;
   display: block;
   height: auto;
 }
 
-.card {
+.card{
   width: 1000px;
-  margin: -200px auto 0;
+  margin: -180px auto 0; /* slightly less overlap so it looks cleaner */
   background: var(--card);
   border-radius: 20px;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 30px 70px rgba(0,0,0,.12);
   text-align: center;
-  padding: 120px 70px 70px;
+  padding: 115px 70px 70px;
 }
 
 /* ================= TITLE ================= */
 
-.title {
+.title{
   font-size: 110px;
   font-weight: 800;
   color: var(--red);
   margin: 0;
 }
 
-.subtitle {
+.subtitle{
   font-size: 28px;
   font-weight: 800;
   margin-top: 12px;
@@ -113,16 +107,16 @@ html[data-theme="dark"] body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 80px;
+  gap: 90px;          /* roomy, like your original */
   margin-top: 60px;
-  flex-wrap: nowrap;          /* <-- STOP wrapping */
+  flex-wrap: nowrap;  /* keep 3 in one row on desktop */
 }
 
 .iconBtn{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 220px;               /* consistent tile width */
+  width: 240px;       /* consistent “tile” width */
   cursor: pointer;
   transition: transform 0.2s ease;
   background: transparent;
@@ -130,14 +124,12 @@ html[data-theme="dark"] body {
   padding: 0;
 }
 
-.iconBtn:hover{
-  transform: translateY(-6px);
-}
+.iconBtn:hover{ transform: translateY(-6px); }
 
-/* SAME-SIZE ICON AREA */
+/* The equal-sized icon “frame” that guarantees alignment */
 .iconBox{
-  width: 200px;
-  height: 200px;              /* reduce/standardize height */
+  width: 210px;
+  height: 210px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -150,24 +142,29 @@ html[data-theme="dark"] body {
   display: block;
 }
 
-/* bring label closer */
+/* Fine-tune individual icon proportions (your request) */
+#aboutBtn .iconImg{   transform: scale(0.82); }  /* About smaller */
+#rulesBtn .iconImg{   transform: scale(1.00); }  /* Rules perfect */
+#contactBtn .iconImg{ transform: scale(1.10); }  /* Contact a bit bigger */
+
 .iconLabel{
-  margin-top: 10px;           /* smaller gap */
+  margin-top: 10px;   /* smaller gap between icon and text */
   font-size: 18px;
   font-weight: 800;
   color: #222;
   text-align: center;
 }
+
 /* ================= BUTTON ROW ================= */
 
-.buttonRow {
+.buttonRow{
   display: flex;
   justify-content: center;
   gap: 50px;
   margin-top: 80px;
 }
 
-.mainBtn {
+.mainBtn{
   width: 280px;
   height: 120px;
   font-size: 32px;
@@ -177,18 +174,18 @@ html[data-theme="dark"] body {
   cursor: pointer;
   background: #fff0f6;
   color: var(--red);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
-  transition: all 0.2s ease;
+  box-shadow: 0 18px 50px rgba(0,0,0,.08);
+  transition: all .2s ease;
 }
 
-.mainBtn:hover {
+.mainBtn:hover{
   transform: translateY(-6px);
-  box-shadow: 0 24px 65px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 24px 65px rgba(0,0,0,.18);
 }
 
 /* ================= GAMES ================= */
 
-.gamesFixed {
+.gamesFixed{
   position: fixed;
   right: 30px;
   bottom: 26px;
@@ -196,63 +193,52 @@ html[data-theme="dark"] body {
   z-index: 50;
 }
 
-.gamesBtn {
+.gamesBtn{
   border: none;
   background: none;
   cursor: pointer;
   padding: 0;
 }
 
-.gamesImg {
-  width: 90px;
-  height: auto;
-  display: block;
-}
+.gamesImg{ width: 90px; height: auto; display: block; }
 
-.gamesLabel {
+.gamesLabel{
   font-weight: 800;
   font-size: 12px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255,255,255,.7);
   padding: 4px 12px;
   border-radius: 999px;
 }
 
 /* ================= RESPONSIVE ================= */
 
-@media (max-width: 1100px) {
-  .card {
+@media (max-width: 1100px){
+  .card{
     width: 92vw;
     padding: 80px 30px 50px;
+    margin-top: -140px;
   }
 
-  .title {
-    font-size: 60px;
-  }
+  .title{ font-size: 60px; }
+  .subtitle{ font-size: 20px; }
 
-  .subtitle {
-    font-size: 20px;
-  }
+  .envelope{ width: 460px; }
 
-  .iconRow {
+  /* allow wrapping on smaller screens */
+  .iconRow{
+    flex-wrap: wrap;
     gap: 40px;
   }
 
-  .iconBox {
-    width: 120px;
-    height: 120px;
-  }
+  .iconBtn{ width: 200px; }
+  .iconBox{ width: 140px; height: 140px; }
+  .iconLabel{ font-size: 14px; }
 
-  .iconLabel {
-    font-size: 14px;
-  }
-
-  .buttonRow {
+  .buttonRow{
     flex-direction: column;
     align-items: center;
     gap: 30px;
   }
 
-  .mainBtn {
-    width: 80%;
-  }
+  .mainBtn{ width: 80%; }
 }
