@@ -111,6 +111,90 @@ html[data-theme="dark"] body {
   justify-content: center;   /* centered alignment */
   gap: 50px;
   margin-top: 80px;
+Loading...
+Robot
+Now I can see the icons for About, Rules, and Contact. I can see the issues:
+
+The icons appear small
+They may have slight alignment/size inconsistencies
+The Contact icon seems slightly larger/different compared to About and Rules
+Since this is an external GitHub Pages website and not our local codebase, I need to clarify with the user:
+
+Ask Question
+Agent asked a question
+Answered
+Up
+Feb 28, 08:59 PM
+
+Rollback
+Rollback
+
+Copy
+a b b
+
+Feb 28, 09:00 PM
+
+Copy
+Robot
+Hey Heart, Quick input needed :
+Got it! You have the source code, want icons ~3x larger (120-150px), and need the CSS code to copy to your GitHub repository.
+
+Based on the HTML structure I saw, here's the CSS fix for your icons:
+
+/* Icon Row - Perfect Alignment & Larger Size */
+.iconRow {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px; /* Consistent spacing between icons */
+}
+
+.iconBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  width: 150px; /* Fixed width ensures alignment */
+}
+
+.iconImg {
+  width: 120px;  /* 3x larger - uniform size for all icons */
+  height: 120px; /* Fixed height ensures same size */
+  object-fit: contain; /* Maintains aspect ratio */
+  margin-bottom: 12px;
+}
+
+.iconLabel {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+/* Icon Row - Perfect Alignment & Larger Size */
+.iconRow {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px; /* Consistent spacing between icons */
+}
+
+.iconBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  width: 150px; /* Fixed width ensures alignment */
+}
+
+.iconImg {
+  width: 120px;  /* 3x larger - uniform size for all icons */
+  height: 120px; /* Fixed height ensures same size */
+  object-fit: contain; /* Maintains aspect ratio */
+  margin-bottom: 12px;
+}
+
+.iconLabel {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 /* ================= BUTTON STYLE ================= */
