@@ -339,11 +339,26 @@ html[data-theme="dark"] .panelCard {
   cursor: pointer;
   font-weight: 800;
   font-size: 22px;
-  display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 8px 10px;
   border-radius: 999px;
+  .backBtn {
+  position: relative;
+  z-index: 10;        /* bring above anything overlapping */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px; /* bigger clickable area */
+  cursor: pointer;
+}
+}
+.panelOverlay {
+  pointer-events: auto;
+}
+
+.panelCard {
+  pointer-events: auto;
 }
 
 html[data-theme="light"] .backBtn { color: #111; }
