@@ -306,9 +306,18 @@ html[data-theme="dark"] .panelCard {
 }
 
 .panelIcon {
-  width: 64px;
-  height: 64px;
+  width: 90px;
+  height: 90px;
   object-fit: contain;
+}
+/* fine-tune panel icon proportions */
+
+#rulesPanel .panelIcon {
+  transform: scale(0.90);
+}
+
+#contactPanel .panelIcon {
+  transform: scale(1.08);
 }
 
 .panelTitle {
