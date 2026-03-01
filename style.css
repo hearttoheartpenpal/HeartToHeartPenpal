@@ -11,7 +11,7 @@ body {
 
 /* ================= COLORS ================= */
 
-:root{
+:root {
   --blush: #fdeaf1;
   --darkRose: #1e0f17;
   --card: #ffffff;
@@ -28,7 +28,7 @@ html[data-theme="dark"] body {
 
 /* ================= THEME ================= */
 
-.themeWrap{
+.themeWrap {
   position: fixed;
   top: 24px;
   left: 24px;
@@ -38,17 +38,17 @@ html[data-theme="dark"] body {
   gap: 6px;
 }
 
-.themeBtn{
+.themeBtn {
   border: none;
   background: none;
   cursor: pointer;
 }
 
-.themeBtn img{
-  width: 130px; /* bigger sun */
+.themeBtn img {
+  width: 130px;
 }
 
-.themeLabel{
+.themeLabel {
   font-weight: 800;
   font-size: 14px;
   background: rgba(255,255,255,.7);
@@ -58,29 +58,27 @@ html[data-theme="dark"] body {
 
 /* ================= LAYOUT ================= */
 
-.stage{
+.stage {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   padding-top: 60px;
 }
 
-.shell{
+.shell {
   width: 95%;
   max-width: 1300px;
 }
 
-/* Bigger envelope */
-.envelope{
+.envelope {
   width: 750px;
   margin: 0 auto;
   display: block;
 }
 
-/* Card */
-.card{
+.card {
   width: 1000px;
-  margin: -200px auto 0;  /* overlaps envelope slightly */
+  margin: -200px auto 0;
   background: var(--card);
   border-radius: 20px;
   box-shadow: 0 30px 70px rgba(0,0,0,.12);
@@ -90,150 +88,105 @@ html[data-theme="dark"] body {
 
 /* ================= TITLE ================= */
 
-.title{
+.title {
   font-size: 110px;
   font-weight: 800;
   color: var(--red);
   margin: 0;
 }
 
-.subtitle{
+.subtitle {
   font-size: 28px;
   font-weight: 800;
   margin-top: 12px;
   color: #222;
 }
 
+/* ================= ICON ROW (About, Rules, Contact) ================= */
+
+.iconRow {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;
+  margin-top: 60px;
+}
+
+.iconBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  width: 150px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.iconBtn:hover {
+  transform: translateY(-6px);
+}
+
+.iconImg {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.iconLabel {
+  font-size: 18px;
+  font-weight: 800;
+  color: #222;
+  margin-top: 6px;
+}
+
 /* ================= BUTTON ROW ================= */
 
-.buttonRow{
+.buttonRow {
   display: flex;
-  justify-content: center;   /* centered alignment */
+  justify-content: center;
   gap: 50px;
   margin-top: 80px;
-Loading...
-Robot
-Now I can see the icons for About, Rules, and Contact. I can see the issues:
-
-The icons appear small
-They may have slight alignment/size inconsistencies
-The Contact icon seems slightly larger/different compared to About and Rules
-Since this is an external GitHub Pages website and not our local codebase, I need to clarify with the user:
-
-Ask Question
-Agent asked a question
-Answered
-Up
-Feb 28, 08:59 PM
-
-Rollback
-Rollback
-
-Copy
-a b b
-
-Feb 28, 09:00 PM
-
-Copy
-Robot
-Hey Heart, Quick input needed :
-Got it! You have the source code, want icons ~3x larger (120-150px), and need the CSS code to copy to your GitHub repository.
-
-Based on the HTML structure I saw, here's the CSS fix for your icons:
-
-/* Icon Row - Perfect Alignment & Larger Size */
-.iconRow {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 60px; /* Consistent spacing between icons */
 }
 
-.iconBtn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  width: 150px; /* Fixed width ensures alignment */
-}
-
-.iconImg {
-  width: 120px;  /* 3x larger - uniform size for all icons */
-  height: 120px; /* Fixed height ensures same size */
-  object-fit: contain; /* Maintains aspect ratio */
-  margin-bottom: 12px;
-}
-
-.iconLabel {
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: center;
-/* Icon Row - Perfect Alignment & Larger Size */
-.iconRow {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 60px; /* Consistent spacing between icons */
-}
-
-.iconBtn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  width: 150px; /* Fixed width ensures alignment */
-}
-
-.iconImg {
-  width: 120px;  /* 3x larger - uniform size for all icons */
-  height: 120px; /* Fixed height ensures same size */
-  object-fit: contain; /* Maintains aspect ratio */
-  margin-bottom: 12px;
-}
-
-.iconLabel {
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: center;
-}
-
-/* ================= BUTTON STYLE ================= */
-
-.mainBtn{
-  width: 280px;           /* controls width */
-  height: 120px;          /* controls height */
-  font-size: 32px;        /* text size */
+.mainBtn {
+  width: 280px;
+  height: 120px;
+  font-size: 32px;
   font-weight: 800;
   border-radius: 20px;
   border: none;
   cursor: pointer;
-
   background: #fff0f6;
   color: var(--red);
-
   box-shadow: 0 18px 50px rgba(0,0,0,.08);
   transition: all .2s ease;
 }
 
-.mainBtn:hover{
+.mainBtn:hover {
   transform: translateY(-6px);
   box-shadow: 0 24px 65px rgba(0,0,0,.18);
 }
 
 /* ================= GAMES ================= */
 
-.gamesFixed{
+.gamesFixed {
   position: fixed;
   right: 30px;
   bottom: 26px;
   text-align: center;
 }
 
-.gamesImg{
+.gamesBtn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.gamesImg {
   width: 90px;
 }
 
-.gamesLabel{
+.gamesLabel {
   font-weight: 800;
   font-size: 12px;
   background: rgba(255,255,255,.7);
@@ -243,19 +196,40 @@ Based on the HTML structure I saw, here's the CSS fix for your icons:
 
 /* ================= RESPONSIVE ================= */
 
-@media (max-width: 1100px){
-
-  .card{
+@media (max-width: 1100px) {
+  .card {
     width: 92vw;
+    padding: 80px 30px 50px;
   }
 
-  .buttonRow{
+  .title {
+    font-size: 60px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+  }
+
+  .iconRow {
+    gap: 40px;
+  }
+
+  .iconImg {
+    width: 80px;
+    height: 80px;
+  }
+
+  .iconLabel {
+    font-size: 14px;
+  }
+
+  .buttonRow {
     flex-direction: column;
     align-items: center;
     gap: 30px;
   }
 
-  .mainBtn{
+  .mainBtn {
     width: 80%;
   }
 }
