@@ -283,6 +283,82 @@
 
     if (tttBtn) tttBtn.addEventListener("click", () => alert("Tic-Tac-Toe coming next!"));
     if (memoryBtn) memoryBtn.addEventListener("click", () => alert("Memory game coming next!"));
+/* ================= TIC TAC TOE ================= */
+
+const tttBtn = document.getElementById("tttBtn");
+const tttGame = document.getElementById("tttGame");
+const tttBoard = document.getElementById("tttBoard");
+const tttReset = document.getElementById("tttReset");
+
+let tttCurrent = "heart";
+let tttCells = [];
+let tttState = Array(9).fill(null);
+
+if (tttBtn) {
+  tttBtn.addEventListener("click", () => {
+    tttBtn.style.display = "none";
+    tttGame.style.display = "block";
+    initTTT();
+  });
+}
+
+function initTTT(){
+  tttBoard.innerHTML = "";
+  tttState = Array(9).fill(null);
+  tttCurrent = "heart";
+  tttCells = [];
+
+  for(let i=0;i<9;i++){
+    const cell = document.createElement("div");
+    cell.className = "tttCell";
+    cell.dataset.index = i;
+    cell.addEventListener("click", handleMove);
+    tttBoard.appendChild(cell);
+    tttCells.push(cell);
+  }
+}
+
+function handleMove(e){
+  const index = e.target.dataset.index;
+
+  if(tttState[index]) return;
+
+  if(tttCurrent === "heart"){
+    e.target.innerHTML = "♥";
+    e.target.classList.add("heartMark");
+    tttState[index] = "heart";
+    tttCurrent = "x";
+  } else {
+    e.target.innerHTML = "X";
+    e.target.classList.add("xMark");
+    tttState[index] = "x";
+    tttCurrent = "heart";
+  }
+
+  checkWinner();
+}
+
+function checkWinner(){
+  const wins = [
+    [0,1,2],[3,4,5],[6,7,8],
+    [0,3,6],[1,4,7],[2,5,8],
+    [0,4,8],[2,4,6]
+  ];
+
+  for(const combo of wins){
+    const [a,b,c] = combo;
+    if(tttState[a] && tttState[a] === tttState[b] && tttState[a] === tttState[c]){
+      alert(tttState[a] === "heart" ? "Hearts win! 💗" : "X wins!");
+      return;
+    }
+  }
+}
+
+if (tttReset){
+  tttReset.addEventListener("click", () => {
+    initTTT();
+  });
+}
   </script>
 
 </body>
