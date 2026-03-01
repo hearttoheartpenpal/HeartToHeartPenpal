@@ -382,3 +382,42 @@ html[data-theme="dark"]  .backBtn:hover { background: rgba(255,255,255,.10); }
 
 /* optional: prevent page scroll when a panel is open */
 body.noScroll { overflow: hidden; }
+/* ================= TIC TAC TOE ================= */
+
+.tttBoard{
+  width: 360px;
+  height: 360px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.tttCell{
+  background: #fff;
+  border: 4px solid #b76a5c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size: 70px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: transform .1s ease;
+}
+
+.tttCell:hover{
+  transform: scale(1.05);
+}
+
+html[data-theme="dark"] .tttCell{
+  background: #2b1a22;
+}
+
+.heartMark{
+  color: #d40000;
+}
+
+.xMark{
+  color: #222;
+}
