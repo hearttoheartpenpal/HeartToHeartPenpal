@@ -68,7 +68,7 @@ html[data-theme="dark"] body{ background: var(--darkRose); }
 }
 
 .envelope{
-  width:700px;
+  width:750px;
   margin:0 auto;
   display:block;
 }
@@ -138,9 +138,9 @@ html[data-theme="dark"] body{ background: var(--darkRose); }
   object-fit:contain;
 }
 
-#aboutBtn .iconImg{ transform:scale(.9); }
-#rulesBtn .iconImg{ transform:scale(.9); }
-#contactBtn .iconImg{ transform:scale(1); }
+#aboutBtn .iconImg{ transform:scale(0.90); }
+#rulesBtn .iconImg{ transform:scale(1.0); }
+#contactBtn .iconImg{ transform:scale(1.10); }
 
 .iconLabel{
   font-size:20px;
@@ -258,7 +258,7 @@ html[data-theme="dark"] .panelCard{
 
 .backBtn{
   border:0;
-  background:rgba(0,0,0,.06);
+  background:  transparent;
   cursor:pointer;
   font-weight:800;
   font-size:18px;
@@ -334,6 +334,25 @@ html[data-theme="dark"] .tttX{ color:#f2f2f2; }
 .memHidden{ color:transparent; }
 .memRevealed{ color:#c40000; }
 .memMatched{ opacity:.6; }
+/* symbol styling */
+.memSym{
+  display: inline-block;
+  transform: translateY(2px);
+}
+
+/* hide/reveal behavior stays the same */
+.memHidden .memSym{ opacity: 0; }
+.memRevealed .memSym{ opacity: 1; }
+
+/* DIFFERENT COLORS PER SYMBOL */
+.memCard[data-sym="❤️"] .memSym{ color:#ff4d7d; } /* pink heart */
+.memCard[data-sym="💌"] .memSym{ color:#ff7fb5; } /* baby pink */
+.memCard[data-sym="🧸"] .memSym{ color:#ffd54a; } /* butter yellow */
+.memCard[data-sym="★"] .memSym{ color:#a88bff; } /* lavender */
+.memCard[data-sym="🎀"] .memSym{ color:#ff6b6b; } /* coral */
+.memCard[data-sym="🌷"] .memSym{ color:#7bd389; } /* mint */
+.memCard[data-sym="☁️"] .memSym{ color:#6ecbff; } /* baby blue */
+.memCard[data-sym="🎶] .memSym{ color:#ff9f1c; } /* warm orange */
 
 /* ================= WIN POPUP ================= */
 
