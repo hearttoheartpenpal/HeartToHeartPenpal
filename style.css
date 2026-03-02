@@ -448,6 +448,9 @@ html[data-theme="dark"]  .winPopCard{ background:#24111c; color:#fff; }
 #contactPanel .panelIcon{
   margin-right: 6px;         /* extra buffer so it never touches text */
 }
+#contactPanel .panelIcon{ transform: scale(1.55) !important; }
+#rulesPanel  .panelIcon{ transform: scale(1.35) !important; }
+}
 
 /* optional: make the title not sit so tight */
 #rulesPanel .panelTitle,
