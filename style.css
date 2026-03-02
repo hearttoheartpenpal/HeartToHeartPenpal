@@ -438,3 +438,19 @@ html[data-theme="dark"]  .winPopCard{ background:#24111c; color:#fff; }
   from{ transform:scale(.92); opacity:0; }
   to{ transform:scale(1); opacity:1; }
 }
+/* ===== Fix: more space between icon + title in Rules/Contact panels ===== */
+#rulesPanel .panelTop,
+#contactPanel .panelTop{
+  gap: 26px;                 /* more spacing */
+}
+
+#rulesPanel .panelIcon,
+#contactPanel .panelIcon{
+  margin-right: 6px;         /* extra buffer so it never touches text */
+}
+
+/* optional: make the title not sit so tight */
+#rulesPanel .panelTitle,
+#contactPanel .panelTitle{
+  line-height: 1.05;
+}
