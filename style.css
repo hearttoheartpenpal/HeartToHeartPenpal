@@ -267,10 +267,22 @@ html[data-theme="dark"]  .panelCard{ background:#24111c; color:#fff; }
   margin-bottom:12px;
 }
 
+/* Base size for all panel icons */
 .panelIcon{
-  width:90px;
-  height:90px;
-  object-fit:contain;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+/* Slight tweaks per panel */
+#rulesPanel .panelIcon{
+  width: 135px;
+  height: 135px;
+}
+
+#contactPanel .panelIcon{
+  width: 150px;
+  height: 150px;
 }
 
 /* Proper sizing instead of transform scaling */
