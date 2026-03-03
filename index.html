@@ -5,64 +5,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Heart to Heart — Penpal Program</title>
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
 
-  <!-- cache-bust so your changes always show -->
-  <link rel="stylesheet" href="./style.css?v=7" />
-
-  <!-- ONLY the icon sizing/locking CSS lives here. Everything else stays in style.css -->
-  <style>
-    /* ---- ICON GRID (About / Rules / Contact) ---- */
-    .iconRow{
-      display:flex !important;
-      justify-content:center !important;
-      align-items:flex-start !important;
-      gap: clamp(1.5rem, 4vw, 3rem) !important;
-      flex-wrap: wrap !important;
-      margin-top: 1.25rem !important;
-    }
-
-    .iconBtn{
-      appearance: none !important;
-      -webkit-appearance: none !important;
-      background: transparent !important;
-      border: 0 !important;
-      padding: 0 !important;
-
-      display:flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: flex-start !important;
-
-      width: clamp(210px, 24vw, 270px) !important;
-      cursor: pointer !important;
-      text-align: center !important;
-    }
-
-    .iconBox{
-      width: clamp(190px, 21vw, 245px) !important;
-      height: clamp(190px, 21vw, 245px) !important;
-      display:flex !important;
-      align-items:center !important;
-      justify-content:center !important;
-    }
-
-    .iconImg{
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: contain !important;
-      display:block !important;
-    }
-
-    .iconLabel{
-      margin-top: 0.9rem !important;
-      width: 100% !important;
-      text-align: center !important;
-      font-weight: 700 !important;
-    }
-  </style>
+  <!-- ✅ IMPORTANT: Load your external stylesheet (fixes “mobile CSS not working”) -->
+  <!-- change v= to any new number whenever you update CSS to bust cache -->
+  <link rel="stylesheet" href="./style.css?v=1001" />
 </head>
 
 <body>
@@ -72,10 +22,12 @@
   <div class="panelOverlay" id="aboutPanel" aria-hidden="true">
     <div class="panelCard" role="dialog" aria-modal="true" aria-label="About panel">
       <button class="backBtn" type="button" data-close-panel>← Back</button>
+
       <div class="panelTop">
         <img class="panelIcon" src="./assets/about.png" alt="">
         <h2 class="panelTitle">About</h2>
       </div>
+
       <div class="panelBody">
         <p><strong>Heart to Heart</strong> is a penpal program connecting students and seniors to share stories, encouragement, and friendship.</p>
         <p>Add your About text here (mission, how it works, who it’s for, etc.).</p>
@@ -86,10 +38,12 @@
   <div class="panelOverlay" id="rulesPanel" aria-hidden="true">
     <div class="panelCard" role="dialog" aria-modal="true" aria-label="Rules panel">
       <button class="backBtn" type="button" data-close-panel>← Back</button>
+
       <div class="panelTop">
         <img class="panelIcon" src="./assets/rules.png" alt="">
         <h2 class="panelTitle">Rules</h2>
       </div>
+
       <div class="panelBody">
         <ul>
           <li>Be kind and respectful.</li>
@@ -104,10 +58,12 @@
   <div class="panelOverlay" id="contactPanel" aria-hidden="true">
     <div class="panelCard" role="dialog" aria-modal="true" aria-label="Contact panel">
       <button class="backBtn" type="button" data-close-panel>← Back</button>
+
       <div class="panelTop">
         <img class="panelIcon" src="./assets/contact.png" alt="">
         <h2 class="panelTitle">Contact</h2>
       </div>
+
       <div class="panelBody">
         <p>Email: <strong>yourname@example.com</strong></p>
         <p>Instagram: <strong>@yourhandle</strong></p>
@@ -130,8 +86,8 @@
       <div class="panelBody">
         <p id="gamesIntro"><strong>Pick a game:</strong></p>
 
-        <!-- Menu buttons -->
-        <div class="buttonRow" id="gamesMenu" style="margin-top:16px; gap:16px; flex-wrap:wrap;">
+        <!-- Menu -->
+        <div class="buttonRow" id="gamesMenu" style="margin-top:16px; gap:16px;">
           <button class="mainBtn" type="button" id="tttBtn" style="width:240px;height:90px;font-size:24px;">
             Tic-Tac-Toe
           </button>
@@ -141,7 +97,7 @@
           </button>
         </div>
 
-        <!-- ================= TIC TAC TOE UI ================= -->
+        <!-- Tic-Tac-Toe -->
         <div id="tttGame" style="display:none; margin-top:18px; text-align:center;">
           <div id="tttStatus" style="font-weight:800; margin-bottom:12px;">Hearts turn 💗</div>
           <div id="tttBoard" class="tttBoard" aria-label="Tic tac toe board"></div>
@@ -157,7 +113,7 @@
           </div>
         </div>
 
-        <!-- ================= MEMORY UI ================= -->
+        <!-- Memory -->
         <div id="memGame" style="display:none; margin-top:18px; text-align:center;">
           <div id="memStatus" style="font-weight:800; margin-bottom:12px;">Find all the matching pairs 💗</div>
           <div id="memBoard" class="memBoard" aria-label="Memory board"></div>
@@ -178,7 +134,7 @@
     </div>
   </div>
 
-  <!-- ================= WINNER POPUP (used by BOTH games) ================= -->
+  <!-- ================= WIN POPUP ================= -->
   <div id="winPop" class="winPop" aria-hidden="true">
     <div class="winPopCard">
       <div id="winPopText" class="winPopText">Winner!</div>
@@ -205,26 +161,25 @@
         <div class="iconRow" aria-label="Navigation">
           <button class="iconBtn" type="button" id="aboutBtn">
             <div class="iconBox">
-              <img class="iconImg" src="./assets/about.png?v=20260228" alt="About">
+              <img class="iconImg" src="./assets/about.png?v=20260301" alt="About">
             </div>
             <div class="iconLabel">About</div>
           </button>
 
           <button class="iconBtn" type="button" id="rulesBtn">
             <div class="iconBox">
-              <img class="iconImg" src="./assets/rules.png?v=20260228" alt="Rules">
+              <img class="iconImg" src="./assets/rules.png?v=20260301" alt="Rules">
             </div>
             <div class="iconLabel">Rules</div>
           </button>
 
           <button class="iconBtn" type="button" id="contactBtn">
             <div class="iconBox">
-              <img class="iconImg" src="./assets/contact.png?v=20260228" alt="Contact">
+              <img class="iconImg" src="./assets/contact.png?v=20260301" alt="Contact">
             </div>
             <div class="iconLabel">Contact</div>
           </button>
         </div>
-
       </section>
     </div>
   </main>
@@ -237,12 +192,12 @@
     <div class="gamesLabel">Games</div>
   </div>
 
-  <!-- keep your existing theme script exactly as-is -->
-  <script src="./script.js?v=7"></script>
+  <!-- ✅ keep your theme script exactly as-is -->
+  <script src="./script.js?v=1001"></script>
 
-  <!-- panels + games script (safe, does not modify script.js) -->
+  <!-- panels + games (added; does NOT modify script.js) -->
   <script>
-    // ================= PANELS =================
+    // -------- panels --------
     const panels = {
       aboutBtn: document.getElementById("aboutPanel"),
       rulesBtn: document.getElementById("rulesPanel"),
@@ -253,30 +208,31 @@
     function openPanel(panelEl){
       if (!panelEl) return;
       panelEl.classList.add("is-open");
-      panelEl.setAttribute("aria-hidden", "false");
+      panelEl.setAttribute("aria-hidden","false");
       document.body.classList.add("noScroll");
     }
 
     function closePanel(panelEl){
       if (!panelEl) return;
       panelEl.classList.remove("is-open");
-      panelEl.setAttribute("aria-hidden", "true");
+      panelEl.setAttribute("aria-hidden","true");
       document.body.classList.remove("noScroll");
     }
 
-    ["aboutBtn","rulesBtn","contactBtn"].forEach((btnId) => {
+    ["aboutBtn","rulesBtn","contactBtn"].forEach((btnId)=>{
       const btn = document.getElementById(btnId);
       const panel = panels[btnId];
       if (!btn || !panel) return;
-      btn.addEventListener("click", () => openPanel(panel));
+      btn.addEventListener("click", ()=> openPanel(panel));
     });
 
     const gamesBtn = document.getElementById("gamesBtn");
-    if (gamesBtn && panels.gamesBtn) {
-      gamesBtn.addEventListener("click", () => openPanel(panels.gamesBtn));
+    if (gamesBtn && panels.gamesBtn){
+      gamesBtn.addEventListener("click", ()=> openPanel(panels.gamesBtn));
     }
 
-    document.addEventListener("click", (e) => {
+    // close on back button (delegated; reliable)
+    document.addEventListener("click",(e)=>{
       const closeBtn = e.target.closest("[data-close-panel]");
       if (!closeBtn) return;
       e.preventDefault();
@@ -285,44 +241,42 @@
       if (overlay) closePanel(overlay);
     });
 
-    document.querySelectorAll(".panelOverlay").forEach((overlay) => {
-      overlay.addEventListener("click", (e) => {
+    // click outside closes
+    document.querySelectorAll(".panelOverlay").forEach((overlay)=>{
+      overlay.addEventListener("click",(e)=>{
         if (e.target === overlay) closePanel(overlay);
       });
     });
 
-    window.addEventListener("keydown", (e) => {
+    // esc closes
+    window.addEventListener("keydown",(e)=>{
       if (e.key !== "Escape") return;
       document.querySelectorAll(".panelOverlay.is-open").forEach(closePanel);
       closeWinPop();
     });
 
-    // ================= WIN POPUP (both games) =================
+    // -------- win popup --------
     const winPop = document.getElementById("winPop");
     const winPopText = document.getElementById("winPopText");
     const winPopClose = document.getElementById("winPopClose");
 
     function showWinPop(text){
-      if (!winPop || !winPopText) return;
       winPopText.textContent = text;
       winPop.classList.add("is-open");
-      winPop.setAttribute("aria-hidden", "false");
+      winPop.setAttribute("aria-hidden","false");
     }
 
     function closeWinPop(){
-      if (!winPop) return;
       winPop.classList.remove("is-open");
-      winPop.setAttribute("aria-hidden", "true");
+      winPop.setAttribute("aria-hidden","true");
     }
 
-    if (winPopClose) winPopClose.addEventListener("click", closeWinPop);
-    if (winPop) {
-      winPop.addEventListener("click", (e) => {
-        if (e.target === winPop) closeWinPop();
-      });
-    }
+    winPopClose.addEventListener("click", closeWinPop);
+    winPop.addEventListener("click",(e)=>{
+      if (e.target === winPop) closeWinPop();
+    });
 
-    // ================= GAMES: shared menu control =================
+    // -------- games menu switching --------
     const gamesMenu = document.getElementById("gamesMenu");
     const gamesIntro = document.getElementById("gamesIntro");
     const gamesNote = document.getElementById("gamesNote");
@@ -332,15 +286,14 @@
 
     function showGamesMenu(){
       closeWinPop();
-      if (tttGame) tttGame.style.display = "none";
-      if (memGame) memGame.style.display = "none";
-
-      if (gamesMenu) gamesMenu.style.display = "flex";
-      if (gamesIntro) gamesIntro.style.display = "block";
-      if (gamesNote) gamesNote.style.display = "block";
+      tttGame.style.display = "none";
+      memGame.style.display = "none";
+      gamesMenu.style.display = "flex";
+      gamesIntro.style.display = "block";
+      gamesNote.style.display = "block";
     }
 
-    // ================= TIC TAC TOE =================
+    // -------- Tic Tac Toe --------
     const tttBtn = document.getElementById("tttBtn");
     const tttBoard = document.getElementById("tttBoard");
     const tttReset = document.getElementById("tttReset");
@@ -353,24 +306,22 @@
 
     function showTTT(){
       closeWinPop();
-      if (gamesMenu) gamesMenu.style.display = "none";
-      if (gamesIntro) gamesIntro.style.display = "none";
-      if (gamesNote) gamesNote.style.display = "none";
-      if (memGame) memGame.style.display = "none";
-
-      if (tttGame) tttGame.style.display = "block";
+      gamesMenu.style.display = "none";
+      gamesIntro.style.display = "none";
+      gamesNote.style.display = "none";
+      memGame.style.display = "none";
+      tttGame.style.display = "block";
       initTTT();
     }
 
     function initTTT(){
-      if (!tttBoard) return;
       tttTurn = "H";
       tttState = Array(9).fill(null);
       tttLocked = false;
-      if (tttStatus) tttStatus.textContent = "Hearts turn 💗";
-
+      tttStatus.textContent = "Hearts turn 💗";
       tttBoard.innerHTML = "";
-      for (let i = 0; i < 9; i++){
+
+      for (let i=0;i<9;i++){
         const cell = document.createElement("div");
         cell.className = "tttCell";
         cell.dataset.i = String(i);
@@ -390,29 +341,21 @@
         cell.textContent = "♥";
         cell.classList.add("tttHeart");
         tttTurn = "X";
-        if (tttStatus) tttStatus.textContent = "X turn ✖️";
+        tttStatus.textContent = "X turn ✖️";
       } else {
         tttState[i] = "X";
         cell.textContent = "X";
         cell.classList.add("tttX");
         tttTurn = "H";
-        if (tttStatus) tttStatus.textContent = "Hearts turn 💗";
+        tttStatus.textContent = "Hearts turn 💗";
       }
 
       const result = checkTTT();
       if (result){
         tttLocked = true;
-
         if (result === "H") showWinPop("Hearts win! 💗");
         else if (result === "X") showWinPop("X wins! ✖️");
         else showWinPop("It’s a tie!");
-
-        if (tttStatus){
-          tttStatus.textContent =
-            result === "H" ? "Hearts win! 💗" :
-            result === "X" ? "X wins! ✖️" :
-            "It’s a tie!";
-        }
       }
     }
 
@@ -423,19 +366,17 @@
         [0,4,8],[2,4,6]
       ];
       for (const [a,b,c] of w){
-        if (tttState[a] && tttState[a] === tttState[b] && tttState[a] === tttState[c]){
-          return tttState[a];
-        }
+        if (tttState[a] && tttState[a]===tttState[b] && tttState[a]===tttState[c]) return tttState[a];
       }
       if (tttState.every(Boolean)) return "T";
       return null;
     }
 
-    if (tttBtn) tttBtn.addEventListener("click", showTTT);
-    if (tttReset) tttReset.addEventListener("click", initTTT);
-    if (tttBackToMenu) tttBackToMenu.addEventListener("click", showGamesMenu);
+    tttBtn.addEventListener("click", showTTT);
+    tttReset.addEventListener("click", initTTT);
+    tttBackToMenu.addEventListener("click", showGamesMenu);
 
-    // ================= MEMORY GAME =================
+    // -------- Memory --------
     const memoryBtn = document.getElementById("memoryBtn");
     const memBoard = document.getElementById("memBoard");
     const memReset = document.getElementById("memReset");
@@ -447,47 +388,44 @@
     let memLock = false;
     let memMatches = 0;
 
-    const memSymbolsBase = ["♥","✿","★","☾","✉","❀","☁","♫"];
+    // (keep these symbols unless you change them)
+    const memSymbolsBase = ["❤️","💌","🧸","★","🎀","🌷","☁️","🎶"];
 
     function shuffle(arr){
       const a = [...arr];
-      for (let i=a.length-1; i>0; i--){
-        const j = Math.floor(Math.random() * (i+1));
-        [a[i], a[j]] = [a[j], a[i]];
+      for (let i=a.length-1;i>0;i--){
+        const j = Math.floor(Math.random()*(i+1));
+        [a[i],a[j]] = [a[j],a[i]];
       }
       return a;
     }
 
     function showMemory(){
       closeWinPop();
-      if (gamesMenu) gamesMenu.style.display = "none";
-      if (gamesIntro) gamesIntro.style.display = "none";
-      if (gamesNote) gamesNote.style.display = "none";
-      if (tttGame) tttGame.style.display = "none";
-
-      if (memGame) memGame.style.display = "block";
+      gamesMenu.style.display = "none";
+      gamesIntro.style.display = "none";
+      gamesNote.style.display = "none";
+      tttGame.style.display = "none";
+      memGame.style.display = "block";
       initMemory();
     }
 
     function initMemory(){
-      if (!memBoard) return;
       memFirst = null;
       memSecond = null;
       memLock = false;
       memMatches = 0;
-
-      if (memStatus) memStatus.textContent = "Find all the matching pairs 💗";
+      memStatus.textContent = "Find all the matching pairs 💗";
 
       const symbols = shuffle([...memSymbolsBase, ...memSymbolsBase]);
       memBoard.innerHTML = "";
 
-      symbols.forEach((sym, idx) => {
+      symbols.forEach((sym, idx)=>{
         const card = document.createElement("div");
         card.className = "memCard memHidden";
         card.dataset.sym = sym;
-        card.dataset.idx = String(idx);
         card.innerHTML = `<span class="memSym">${sym}</span>`;
-        card.addEventListener("click", () => onMemClick(card));
+        card.addEventListener("click", ()=> onMemClick(card));
         memBoard.appendChild(card);
       });
     }
@@ -529,33 +467,29 @@
         markMatched(memFirst);
         markMatched(memSecond);
         memMatches++;
-
         memFirst = null;
         memSecond = null;
         memLock = false;
-
-        if (memStatus) memStatus.textContent = `Matches: ${memMatches}/8`;
+        memStatus.textContent = `Matches: ${memMatches}/8`;
 
         if (memMatches === 8){
-          if (memStatus) memStatus.textContent = "Winner! 💗";
           showWinPop("You matched them all! 💗");
         }
-
       } else {
-        setTimeout(() => {
+        setTimeout(()=>{
           hide(memFirst);
           hide(memSecond);
           memFirst = null;
           memSecond = null;
           memLock = false;
-          if (memStatus) memStatus.textContent = "Try again 💗";
+          memStatus.textContent = "Try again 💗";
         }, 650);
       }
     }
 
-    if (memoryBtn) memoryBtn.addEventListener("click", showMemory);
-    if (memReset) memReset.addEventListener("click", initMemory);
-    if (memBackToMenu) memBackToMenu.addEventListener("click", showGamesMenu);
+    memoryBtn.addEventListener("click", showMemory);
+    memReset.addEventListener("click", initMemory);
+    memBackToMenu.addEventListener("click", showGamesMenu);
   </script>
 
 </body>
