@@ -527,4 +527,107 @@ html[data-theme="dark"]  .winPopCard{ background:#24111c; color:#fff; }
   }
   .gamesImg{ width: 70px; }
 }
+  /* ================= MOBILE FIX (PASTE AT VERY BOTTOM) ================= */
+
+/* 1) Make ALL panels scroll on small screens (fixes Games not scrollable) */
+.panelCard{
+  max-height: 85vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* If the panel is tall, start from top on mobile so it feels natural */
+@media (max-width: 700px){
+  .panelOverlay{
+    align-items: flex-start;
+    padding: 14px;
+  }
+  .panelCard{
+    margin-top: 14px;
+    width: 100%;
+    max-height: calc(100vh - 28px);
+  }
+}
+
+/* 2) Make homepage layout actually fit phones */
+@media (max-width: 700px){
+
+  .stage{
+    padding-top: 26px;
+  }
+
+  /* Smaller envelope */
+  .envelope{
+    width: min(78vw, 360px);
+  }
+
+  /* Card fits screen + less overlap + less padding */
+  .card{
+    width: 92vw;
+    margin: -120px auto 24px;  /* less overlap than desktop */
+    padding: 58px 18px 26px;
+    border-radius: 22px;
+  }
+
+  /* Title/subtitle shrink */
+  .title{
+    font-size: clamp(40px, 9vw, 56px);
+    line-height: 1.05;
+  }
+  .subtitle{
+    font-size: clamp(16px, 4.4vw, 20px);
+    margin-top: 10px;
+  }
+
+  /* Icons become a clean 2-column grid on phones */
+  .iconRow{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 14px;
+    margin-top: 22px;
+    align-items: start;
+    justify-items: center;
+  }
+
+  /* Put Contact centered on its own row */
+  #contactBtn{
+    grid-column: 1 / -1;
+  }
+
+  .iconBtn{
+    width: 42vw;
+    max-width: 190px;
+    gap: 8px;
+  }
+
+  .iconBox{
+    width: 42vw;
+    max-width: 190px;
+    height: 108px;            /* keeps label close */
+    align-items: flex-end;
+  }
+
+  .iconImg{
+    max-height: 108px;
+    height: 100%;
+    width: auto;
+  }
+
+  .iconLabel{
+    font-size: 16px;
+  }
+
+  /* Games button doesn’t cover stuff */
+  .gamesFixed{
+    right: 14px;
+    bottom: 14px;
+  }
+  .gamesImg{
+    width: 72px;
+  }
+  .gamesLabel{
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+}
 }
