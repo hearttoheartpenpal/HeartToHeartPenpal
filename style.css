@@ -476,4 +476,55 @@ html[data-theme="dark"]  .winPopCard{ background:#24111c; color:#fff; }
 #rulesPanel .panelTitle,
 #contactPanel .panelTitle{
   line-height: 1.05;
+  /* ===== MOBILE FIX ===== */
+@media (max-width: 600px){
+  .stage{ padding-top: 22px; }
+
+  .shell{ width: 94%; }
+
+  .envelope{
+    width: min(92vw, 360px);
+  }
+
+  .card{
+    width: 92vw;
+    margin: -90px auto 0;
+    padding: 60px 18px 28px;
+    border-radius: 18px;
+  }
+
+  .title{
+    font-size: 44px;
+    line-height: 1.05;
+  }
+
+  .subtitle{
+    font-size: 18px;
+    margin-top: 8px;
+  }
+
+  .iconRow{
+    gap: 18px;
+    margin-top: 18px;
+  }
+
+  .iconBtn{ width: 120px; gap: 6px; }
+
+  .iconBox{
+    width: 120px;
+    height: 90px;
+  }
+
+  .iconImg{
+    max-height: 90px;
+  }
+
+  .iconLabel{ font-size: 14px; }
+
+  .gamesFixed{
+    right: 14px;
+    bottom: 12px;
+  }
+  .gamesImg{ width: 70px; }
+}
 }
