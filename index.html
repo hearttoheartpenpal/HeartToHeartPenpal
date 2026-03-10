@@ -5,20 +5,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Heart to Heart — Penpal Program</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
 
-  <!-- ✅ IMPORTANT: Load your external stylesheet (fixes “mobile CSS not working”) -->
-  <!-- change v= to any new number whenever you update CSS to bust cache -->
-  <link rel="stylesheet" href="./style.css?v=1001" />
+  <link rel="stylesheet" href="./style.css?v=1002" />
 </head>
-
 <body>
 
-  <!-- ================= INFO PANELS ================= -->
-
+  <!-- ================= ABOUT PANEL ================= -->
   <div class="panelOverlay" id="aboutPanel" aria-hidden="true">
     <div class="panelCard" role="dialog" aria-modal="true" aria-label="About panel">
       <button class="backBtn" type="button" data-close-panel>← Back</button>
@@ -28,24 +23,26 @@
         <h2 class="panelTitle">About</h2>
       </div>
 
-    <div class="panelBody">
+      <div class="panelBody">
+        <p>
+          Heart-to-Heart is a student-led pen-pal program that connects Dunlap High School students with seniors in local nursing homes through thoughtful letters. The goal is simple: brighten someone’s day and build meaningful connections across generations.
+        </p>
 
-<p>
-Heart-to-Heart is a student-led pen-pal program that connects Dunlap High School students with seniors in local nursing homes through thoughtful letters. The goal is simple: brighten someone’s day and build meaningful connections across generations.
-</p>
+        <p>
+          Through this program students and seniors can share stories, encouragement, and everyday moments while building friendships rooted in kindness and community.
+        </p>
 
-<p>
-Through this program students and seniors can share stories, encouragement, and everyday moments while building friendships rooted in kindness and community.
-</p>
+        <ul>
+          <li>💌 Students and seniors are paired as pen pals</li>
+          <li>✉️ Letters are exchanged throughout the semester</li>
+          <li>🌷 Conversations focus on hobbies, memories, and positive stories</li>
+          <li>❤️ A small letter can make someone feel seen and valued</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-<ul>
-  <li>💌 Students and seniors are paired as pen pals</li>
-  <li>✉️ Letters are exchanged throughout the semester</li>
-  <li>🌷 Conversations focus on hobbies, memories, and positive stories</li>
-  <li>❤️ A small letter can make someone feel seen and valued</li>
-</ul>
-
-</div>
+  <!-- ================= RULES PANEL ================= -->
   <div class="panelOverlay" id="rulesPanel" aria-hidden="true">
     <div class="panelCard" role="dialog" aria-modal="true" aria-label="Rules panel">
       <button class="backBtn" type="button" data-close-panel>← Back</button>
@@ -56,16 +53,21 @@ Through this program students and seniors can share stories, encouragement, and 
       </div>
 
       <div class="panelBody">
+        <p>
+          Heart-to-Heart is meant to be a safe, uplifting, and respectful program for both students and seniors. Every letter should reflect kindness, encouragement, and care.
+        </p>
+
         <ul>
-          <li>Be kind and respectful.</li>
-          <li>No sharing private personal information.</li>
-          <li>Keep letters appropriate and positive.</li>
-          <li>Follow program guidelines for mailing/delivery.</li>
+          <li>💗 Be respectful, kind, and age-appropriate</li>
+          <li>🔒 Do not share personal contact information, addresses, or schedules</li>
+          <li>🌼 Keep topics positive: hobbies, memories, school life, and encouragement</li>
+          <li>🚫 No inappropriate, romantic, political, or sensitive personal content</li>
         </ul>
       </div>
     </div>
   </div>
 
+  <!-- ================= CONTACT PANEL ================= -->
   <div class="panelOverlay" id="contactPanel" aria-hidden="true">
     <div class="panelCard" role="dialog" aria-modal="true" aria-label="Contact panel">
       <button class="backBtn" type="button" data-close-panel>← Back</button>
@@ -76,15 +78,21 @@ Through this program students and seniors can share stories, encouragement, and 
       </div>
 
       <div class="panelBody">
-        <p>Email: <strong>yourname@example.com</strong></p>
-        <p>Instagram: <strong>@yourhandle</strong></p>
-        <p>Put whatever contact info you want here.</p>
+        <p>
+          Have questions, ideas, or want to learn more about Heart-to-Heart? We’d love to hear from you.
+        </p>
+
+        <ul>
+          <li>📧 Email: yourname@example.com</li>
+          <li>📱 Instagram: @hearttoheartpenpal</li>
+          <li>🏫 Dunlap High School community project</li>
+          <li>💌 Reach out for program details, partnerships, or support</li>
+        </ul>
       </div>
     </div>
   </div>
 
   <!-- ================= GAMES PANEL ================= -->
-
   <div class="panelOverlay" id="gamesPanel" aria-hidden="true">
     <div class="panelCard" role="dialog" aria-modal="true" aria-label="Games panel">
       <button class="backBtn" type="button" data-close-panel>← Back</button>
@@ -97,8 +105,7 @@ Through this program students and seniors can share stories, encouragement, and 
       <div class="panelBody">
         <p id="gamesIntro"><strong>Pick a game:</strong></p>
 
-        <!-- Menu -->
-        <div class="buttonRow" id="gamesMenu" style="margin-top:16px; gap:16px;">
+        <div class="buttonRow" id="gamesMenu">
           <button class="mainBtn" type="button" id="tttBtn" style="width:240px;height:90px;font-size:24px;">
             Tic-Tac-Toe
           </button>
@@ -108,7 +115,7 @@ Through this program students and seniors can share stories, encouragement, and 
           </button>
         </div>
 
-        <!-- Tic-Tac-Toe -->
+        <!-- Tic Tac Toe -->
         <div id="tttGame" style="display:none; margin-top:18px; text-align:center;">
           <div id="tttStatus" style="font-weight:800; margin-bottom:12px;">Hearts turn 💗</div>
           <div id="tttBoard" class="tttBoard" aria-label="Tic tac toe board"></div>
@@ -153,7 +160,7 @@ Through this program students and seniors can share stories, encouragement, and 
     </div>
   </div>
 
-  <!-- TOP LEFT: theme toggle -->
+  <!-- ================= THEME ================= -->
   <div class="themeWrap">
     <button class="themeBtn" id="themeBtn" type="button" aria-label="Toggle theme">
       <img id="themeIcon" src="./assets/sun.png" alt="Theme icon">
@@ -161,6 +168,7 @@ Through this program students and seniors can share stories, encouragement, and 
     <div class="themeLabel" id="themeLabel">Light</div>
   </div>
 
+  <!-- ================= MAIN PAGE ================= -->
   <main class="stage">
     <div class="shell">
       <img class="envelope" src="./assets/envelope.png" alt="Envelope">
@@ -195,7 +203,7 @@ Through this program students and seniors can share stories, encouragement, and 
     </div>
   </main>
 
-  <!-- Bottom-right Games button -->
+  <!-- ================= GAMES BUTTON ================= -->
   <div class="gamesFixed">
     <button class="gamesBtn" id="gamesBtn" type="button" aria-label="Open games">
       <img class="gamesImg" src="./assets/games.png" alt="Games">
@@ -203,12 +211,9 @@ Through this program students and seniors can share stories, encouragement, and 
     <div class="gamesLabel">Games</div>
   </div>
 
-  <!-- ✅ keep your theme script exactly as-is -->
-  <script src="./script.js?v=1001"></script>
+  <script src="./script.js?v=1002"></script>
 
-  <!-- panels + games (added; does NOT modify script.js) -->
   <script>
-    // -------- panels --------
     const panels = {
       aboutBtn: document.getElementById("aboutPanel"),
       rulesBtn: document.getElementById("rulesPanel"),
@@ -219,31 +224,30 @@ Through this program students and seniors can share stories, encouragement, and 
     function openPanel(panelEl){
       if (!panelEl) return;
       panelEl.classList.add("is-open");
-      panelEl.setAttribute("aria-hidden","false");
+      panelEl.setAttribute("aria-hidden", "false");
       document.body.classList.add("noScroll");
     }
 
     function closePanel(panelEl){
       if (!panelEl) return;
       panelEl.classList.remove("is-open");
-      panelEl.setAttribute("aria-hidden","true");
+      panelEl.setAttribute("aria-hidden", "true");
       document.body.classList.remove("noScroll");
     }
 
-    ["aboutBtn","rulesBtn","contactBtn"].forEach((btnId)=>{
+    ["aboutBtn","rulesBtn","contactBtn"].forEach((btnId) => {
       const btn = document.getElementById(btnId);
       const panel = panels[btnId];
       if (!btn || !panel) return;
-      btn.addEventListener("click", ()=> openPanel(panel));
+      btn.addEventListener("click", () => openPanel(panel));
     });
 
     const gamesBtn = document.getElementById("gamesBtn");
-    if (gamesBtn && panels.gamesBtn){
-      gamesBtn.addEventListener("click", ()=> openPanel(panels.gamesBtn));
+    if (gamesBtn && panels.gamesBtn) {
+      gamesBtn.addEventListener("click", () => openPanel(panels.gamesBtn));
     }
 
-    // close on back button (delegated; reliable)
-    document.addEventListener("click",(e)=>{
+    document.addEventListener("click", (e) => {
       const closeBtn = e.target.closest("[data-close-panel]");
       if (!closeBtn) return;
       e.preventDefault();
@@ -252,21 +256,13 @@ Through this program students and seniors can share stories, encouragement, and 
       if (overlay) closePanel(overlay);
     });
 
-    // click outside closes
-    document.querySelectorAll(".panelOverlay").forEach((overlay)=>{
-      overlay.addEventListener("click",(e)=>{
+    document.querySelectorAll(".panelOverlay").forEach((overlay) => {
+      overlay.addEventListener("click", (e) => {
         if (e.target === overlay) closePanel(overlay);
       });
     });
 
-    // esc closes
-    window.addEventListener("keydown",(e)=>{
-      if (e.key !== "Escape") return;
-      document.querySelectorAll(".panelOverlay.is-open").forEach(closePanel);
-      closeWinPop();
-    });
-
-    // -------- win popup --------
+    // winner popup
     const winPop = document.getElementById("winPop");
     const winPopText = document.getElementById("winPopText");
     const winPopClose = document.getElementById("winPopClose");
@@ -274,24 +270,30 @@ Through this program students and seniors can share stories, encouragement, and 
     function showWinPop(text){
       winPopText.textContent = text;
       winPop.classList.add("is-open");
-      winPop.setAttribute("aria-hidden","false");
+      winPop.setAttribute("aria-hidden", "false");
     }
 
     function closeWinPop(){
       winPop.classList.remove("is-open");
-      winPop.setAttribute("aria-hidden","true");
+      winPop.setAttribute("aria-hidden", "true");
     }
 
     winPopClose.addEventListener("click", closeWinPop);
-    winPop.addEventListener("click",(e)=>{
+    winPop.addEventListener("click", (e) => {
       if (e.target === winPop) closeWinPop();
     });
 
-    // -------- games menu switching --------
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        document.querySelectorAll(".panelOverlay.is-open").forEach(closePanel);
+        closeWinPop();
+      }
+    });
+
+    // games switching
     const gamesMenu = document.getElementById("gamesMenu");
     const gamesIntro = document.getElementById("gamesIntro");
     const gamesNote = document.getElementById("gamesNote");
-
     const tttGame = document.getElementById("tttGame");
     const memGame = document.getElementById("memGame");
 
@@ -304,7 +306,7 @@ Through this program students and seniors can share stories, encouragement, and 
       gamesNote.style.display = "block";
     }
 
-    // -------- Tic Tac Toe --------
+    // tic tac toe
     const tttBtn = document.getElementById("tttBtn");
     const tttBoard = document.getElementById("tttBoard");
     const tttReset = document.getElementById("tttReset");
@@ -332,7 +334,7 @@ Through this program students and seniors can share stories, encouragement, and 
       tttStatus.textContent = "Hearts turn 💗";
       tttBoard.innerHTML = "";
 
-      for (let i=0;i<9;i++){
+      for (let i = 0; i < 9; i++){
         const cell = document.createElement("div");
         cell.className = "tttCell";
         cell.dataset.i = String(i);
@@ -371,13 +373,13 @@ Through this program students and seniors can share stories, encouragement, and 
     }
 
     function checkTTT(){
-      const w = [
+      const wins = [
         [0,1,2],[3,4,5],[6,7,8],
         [0,3,6],[1,4,7],[2,5,8],
         [0,4,8],[2,4,6]
       ];
-      for (const [a,b,c] of w){
-        if (tttState[a] && tttState[a]===tttState[b] && tttState[a]===tttState[c]) return tttState[a];
+      for (const [a,b,c] of wins){
+        if (tttState[a] && tttState[a] === tttState[b] && tttState[a] === tttState[c]) return tttState[a];
       }
       if (tttState.every(Boolean)) return "T";
       return null;
@@ -387,7 +389,7 @@ Through this program students and seniors can share stories, encouragement, and 
     tttReset.addEventListener("click", initTTT);
     tttBackToMenu.addEventListener("click", showGamesMenu);
 
-    // -------- Memory --------
+    // memory
     const memoryBtn = document.getElementById("memoryBtn");
     const memBoard = document.getElementById("memBoard");
     const memReset = document.getElementById("memReset");
@@ -399,14 +401,13 @@ Through this program students and seniors can share stories, encouragement, and 
     let memLock = false;
     let memMatches = 0;
 
-    // (keep these symbols unless you change them)
     const memSymbolsBase = ["❤️","💌","🧸","★","🎀","🌷","☁️","🎶"];
 
     function shuffle(arr){
       const a = [...arr];
-      for (let i=a.length-1;i>0;i--){
-        const j = Math.floor(Math.random()*(i+1));
-        [a[i],a[j]] = [a[j],a[i]];
+      for (let i = a.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
       }
       return a;
     }
@@ -431,12 +432,12 @@ Through this program students and seniors can share stories, encouragement, and 
       const symbols = shuffle([...memSymbolsBase, ...memSymbolsBase]);
       memBoard.innerHTML = "";
 
-      symbols.forEach((sym, idx)=>{
+      symbols.forEach((sym) => {
         const card = document.createElement("div");
         card.className = "memCard memHidden";
         card.dataset.sym = sym;
         card.innerHTML = `<span class="memSym">${sym}</span>`;
-        card.addEventListener("click", ()=> onMemClick(card));
+        card.addEventListener("click", () => onMemClick(card));
         memBoard.appendChild(card);
       });
     }
@@ -487,7 +488,7 @@ Through this program students and seniors can share stories, encouragement, and 
           showWinPop("You matched them all! 💗");
         }
       } else {
-        setTimeout(()=>{
+        setTimeout(() => {
           hide(memFirst);
           hide(memSecond);
           memFirst = null;
@@ -502,6 +503,5 @@ Through this program students and seniors can share stories, encouragement, and 
     memReset.addEventListener("click", initMemory);
     memBackToMenu.addEventListener("click", showGamesMenu);
   </script>
-
 </body>
 </html>
